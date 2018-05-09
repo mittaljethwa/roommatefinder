@@ -158,6 +158,8 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
 
                 Log.i(TAG,"Place loaded: "+ preferredLocationPlaceName);
 
+                loadData();
+
 //                // Format details of the place for display and show it in a TextView.
 //                mPlaceDetailsText.setText(formatPlaceDetails(getResources(), place.getName(),
 //                        place.getId(), place.getAddress(), place.getPhoneNumber(),
@@ -311,7 +313,10 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
                 else {
                     Log.d(TAG,"Housing data snapshot is not null, Loading Data" + dataSnapshot.getValue());
                     housePreference = dataSnapshot.getValue(HousePreference.class);
-                    loadData();
+
+                    String locationPlaceID = housePreference.getPlaceID();
+                    Task<PlaceBufferResponse> placeResult = mGeoDataClient.getPlaceById(locationPlaceID);
+                    placeResult.addOnCompleteListener(mUpdatePlaceDetailsCallback);
                 }
             }
 
@@ -323,14 +328,11 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-        String locationPlaceID = housePreference.getPlaceID();
+
         float radius = housePreference.getSearchRadius();
         float minBudget = housePreference.getMinBudget();
         float maxBudget = housePreference.getMaxBudget();
         String roomType = housePreference.getRoomType();
-
-        Task<PlaceBufferResponse> placeResult = mGeoDataClient.getPlaceById(locationPlaceID);
-        placeResult.addOnCompleteListener(mUpdatePlaceDetailsCallback);
 
         Log.i(TAG,"Place name to set: "+preferredLocationPlaceName);
         mAutocompleteView.setText(preferredLocationPlaceName);
