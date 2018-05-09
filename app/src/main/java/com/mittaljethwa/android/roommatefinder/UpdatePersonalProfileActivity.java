@@ -54,7 +54,7 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_personal_profile);
 
         auth = FirebaseAuth.getInstance();
-        sharedPreferences = getPreferences(Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences(MainActivity.class.getSimpleName(),MODE_PRIVATE);
 
         //get current user
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -218,6 +218,7 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
 
                     saveUserProfileOnDevice(userProfile);
 
+                    updateUI(userKey);
                     startActivity(new Intent(UpdatePersonalProfileActivity.this, HomeActivity.class));
                     finish();
 
@@ -231,6 +232,41 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void updateUI(String userKey) {
+        if(userKey != null) {
+
+            FirebaseUtils.getRefToSpecificUser(userKey).child("housing").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.getValue() == null)
+                    {
+                        Log.d(TAG,"Housing snapshot is null, asking user to update housing preference");
+                        Intent updateIntent = new Intent(UpdatePersonalProfileActivity.this, UpdateHousingPreferencesActivity.class);
+                        startActivity(updateIntent);                            }
+                    else {
+                        Log.d(TAG,"Housing snapshot is not null, navigating to Home Screen");
+
+                        SharedPreferences sharedPreferences = getSharedPreferences(MainActivity.class.getSimpleName(),MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString(HousePreference.class.getSimpleName(), new Gson().toJson(dataSnapshot.getValue()));
+                        editor.apply();
+
+                        Log.d(TAG,dataSnapshot.getValue().toString());
+
+                        Intent homeIntent = new Intent(UpdatePersonalProfileActivity.this, HomeActivity.class);
+                        startActivity(homeIntent);
+                    }
+                    finish();
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
     }
 
     private String getGenderSelected(int checkedRadioButtonId) {

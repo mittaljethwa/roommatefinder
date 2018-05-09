@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <!--<android.support.design.widget.TextInputLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/preferredLocation"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:drawablePadding="5dp"-->
+                <!--android:drawableStart="@drawable/ic_pin_drop_black_24dp"-->
+                <!--android:hint="@string/pick_a_location" />-->
+        <!--</android.support.design.widget.TextInputLayout>-->
+
+        <AutoCompleteTextView
+            android:id="@+id/preferredLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:drawablePadding="5dp"
+            android:drawableStart="@drawable/ic_pin_drop_black_24dp"
+            android:hint="@string/pick_a_location"
+            android:singleLine="true" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/preferredRadius"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_near_me_black_24dp"
+                android:hint="@string/within_miles"
+                android:inputType="numberDecimal" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2">
+
+                <EditText
+                    android:id="@+id/preferredMinBudget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:drawableStart="@drawable/ic_attach_money_black_24dp"
+                    android:hint="@string/min_budget"
+                    android:inputType="numberDecimal" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:text="-"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2">
+
+                <EditText
+                    android:id="@+id/preferredMaxBudget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:drawableStart="@drawable/ic_attach_money_black_24dp"
+                    android:hint="@string/max_budget"
+                    android:inputType="numberDecimal" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/label_roomType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Room Type" />
+
+            <RadioGroup
+                android:id="@+id/preferredRoomType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioPreferredRoomTypePrivate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:drawablePadding="5dp"
+                    android:drawableStart="@drawable/ic_person_black_24dp"
+                    android:text="Private" />
+
+                <RadioButton
+                    android:id="@+id/radioPreferredRoomTypeShared"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="5dp"
+                    android:drawableStart="@drawable/ic_people_black_24dp"
+                    android:text="Shared" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/saveHousingButton"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@color/primaryDarkColor"
+            android:text="@string/action_save"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -151,21 +151,14 @@ public class HomeActivity extends AppCompatActivity
 //            startActivityForResult(new Intent(HomeActivity.this, UpdatePersonalProfileActivity.class));
             startActivityForResult(new Intent(HomeActivity.this, UpdatePersonalProfileActivity.class),FROM_HOME);
         }
+        else if(id == R.id.nav_lifestyle) {
+            startActivityForResult(new Intent(HomeActivity.this, UpdateLifestylePreferencesActivity.class),FROM_HOME);
+        }
+        else if(id == R.id.nav_housing) {
+            startActivityForResult(new Intent(HomeActivity.this, UpdateHousingPreferencesActivity.class),FROM_HOME);
+        }
         else if(id == R.id.nav_logoff) {
             signOut();
-        }
-        else if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
