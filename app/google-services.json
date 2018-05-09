@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "384649052313",
+    "firebase_url": "https://roommatefinder-3ce32.firebaseio.com",
+    "project_id": "roommatefinder-3ce32",
+    "storage_bucket": "roommatefinder-3ce32.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:384649052313:android:5c5153edebc56ff9",
+        "android_client_info": {
+          "package_name": "com.mittaljethwa.android.roommatefinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "384649052313-sclb1rlbqd0re4a0qc69ls2fvaok3rcj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mittaljethwa.android.roommatefinder",
+            "certificate_hash": "8bc3d491fdac1eba12765db2c5203d45985a316b"
+          }
+        },
+        {
+          "client_id": "384649052313-9409p9ngedjif3qkgk4vre89kdnsbm3u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8_8znNov-coX9iJdGfNuolsPkd_XH1eM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "384649052313-9409p9ngedjif3qkgk4vre89kdnsbm3u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
