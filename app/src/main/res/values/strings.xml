@@ -28,7 +28,7 @@
     <string name="looking_for">Looking For</string>
     <string name="str_bio">Bio</string>
     <string name="str_gender">Gender</string>
-    <string name="lifestyle_preferences">Lifestyle Preferences</string>
+    <string name="label_lifestyle_preferences">Lifestyle Preferences</string>
     <string name="str_food">Food</string>
     <string name="str_veg">Veg</string>
     <string name="str_non_veg">Non-veg</string>
@@ -70,4 +70,6 @@
     <string name="forgot_password_msg">We will send an email to your registered email address for the instructions for resetting your password.</string>
     <string name="action_save">Save</string>
     <string name="error_saving_data">Error saving data :</string>
+    <string name="lifestyle_preferences">Lifestyle Preferences</string>
+    <string name="label_profile">Profile</string>
 </resources>
