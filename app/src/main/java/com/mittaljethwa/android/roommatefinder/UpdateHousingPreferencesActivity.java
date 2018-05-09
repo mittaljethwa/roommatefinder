@@ -131,8 +131,8 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
              Issue a request to the Places Geo Data Client to retrieve a Place object with
              additional details about the place.
               */
-            Task<PlaceBufferResponse> placeResult = mGeoDataClient.getPlaceById(placeId);
-            placeResult.addOnCompleteListener(mUpdatePlaceDetailsCallback);
+//            Task<PlaceBufferResponse> placeResult = mGeoDataClient.getPlaceById(placeId);
+//            placeResult.addOnCompleteListener(mUpdatePlaceDetailsCallback);
 
             Toast.makeText(getApplicationContext(), "Clicked: " + primaryText,
                     Toast.LENGTH_SHORT).show();
@@ -336,6 +336,7 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
 
         Log.i(TAG,"Place name to set: "+preferredLocationPlaceName);
         mAutocompleteView.setText(preferredLocationPlaceName);
+        mAutocompleteView.setSelection(mAutocompleteView.length());
         inputRadius.setText(String.valueOf(radius));
         inputMinBudget.setText(String.valueOf(minBudget));
         inputMaxBudget.setText(String.valueOf(maxBudget));
