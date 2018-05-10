@@ -115,6 +115,7 @@ public class HomeActivity extends AppCompatActivity
         else {
             //Use user applied filters
             Log.d("User filters: ","filters present");
+            applyCustomFilters();
         }
 
 
@@ -136,10 +137,72 @@ public class HomeActivity extends AppCompatActivity
         };
     }
 
+    private void applyCustomFilters() {
+
+        DatabaseReference userReference = FirebaseUtils.getRefToUsersNode();
+        Query query;
+
+        final Filters customFilters = getCustomFilters();
+
+        String initialFilter = "gender";
+        query = userReference.orderByChild(initialFilter).equalTo(customFilters.getGender());
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                roomDetailsList =  new ArrayList<>();
+                String currentUserKey = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot user : dataSnapshot.getChildren()) {
+
+                        //Get all users matching the query, except self.
+                        if(!user.getKey().equals(currentUserKey)) {
+
+                            RoommateDetails roommateDetails = user.getValue(RoommateDetails.class);
+                            if(filtersApplicable(roommateDetails,customFilters)) {
+                                roomDetailsList.add(roommateDetails);
+                            }
+                        }
+                    }
+
+                    updateRecyclerUI();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private boolean filtersApplicable(RoommateDetails roommateDetails, Filters customFilters) {
+        boolean isAMatch = true;
+        if (customFilters.getProfileCateogry().equals("Any")) {
+            isAMatch = true;
+        }
+        else if (!customFilters.getProfileCateogry().equals(roommateDetails.getProfileCategory())) {
+            return false;
+        }
+
+        if(customFilters.getSmokePref().equals("")) {
+            isAMatch = true;
+        }
+        else if(!customFilters.getSmokePref().equals(roommateDetails.getLifestylePreferences().get("smokePref"))) {
+            return false;
+        }
+
+        if(customFilters.getAlcoholPref().equals("")) {
+            isAMatch = true;
+        }
+        else if(!customFilters.getAlcoholPref().equals(roommateDetails.getLifestylePreferences().get("smokePref"))) {
+            return false;
+        }
+
+        return true;
+    }
+
     private void loadInitialResults() {
-
-//        getCurrentUserGender();
-
 
         DatabaseReference userReference = FirebaseUtils.getRefToUsersNode();
         Query query;
@@ -343,5 +406,15 @@ public class HomeActivity extends AppCompatActivity
 
             }
         });
+    }
+
+    public Filters getCustomFilters() {
+        Filters customFilters;
+
+        String searchFilters = sharedPreferences.getString("Filters", "");
+        customFilters = new Gson().fromJson(searchFilters, Filters.class);
+        Log.d("Loading Filters in home",searchFilters);
+
+        return customFilters;
     }
 }

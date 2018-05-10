@@ -83,22 +83,27 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // Set Initial Time
-                String bedTimeArr[] = bedTime.substring(0,5).split(":");
-                String am_pm = bedTime.substring(6);
                 int initialHour = 0;
                 int initialMinute = 0;
-                if(bedTimeArr.length == 2){
-                    initialHour = Integer.parseInt(bedTimeArr[0]);
-                    initialMinute = Integer.parseInt(bedTimeArr[1]);
-                }
 
-                if(am_pm.equals("PM")){
-                    if(initialHour != 12)
-                        initialHour = initialHour + 12;
-                }else{
-                    if(initialHour == 12)
-                        initialHour = 0;
+                // Set Initial Time
+                if(bedTime.length()!=0) {
+
+                    String bedTimeArr[] = bedTime.substring(0,5).split(":");
+                    String am_pm = bedTime.substring(6);
+                    if(bedTimeArr.length == 2){
+                        initialHour = Integer.parseInt(bedTimeArr[0]);
+                        initialMinute = Integer.parseInt(bedTimeArr[1]);
+                    }
+
+                    if(am_pm.equals("PM")){
+                        if(initialHour != 12)
+                            initialHour = initialHour + 12;
+                    }else{
+                        if(initialHour == 12)
+                            initialHour = 0;
+                    }
+
                 }
                 TimePickerDialog mTimePicker = new TimePickerDialog(UpdateLifestylePreferencesActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
@@ -131,22 +136,26 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // Set Initial Time
-                String wakeupTimeArr[] = wakeupTime.substring(0,5).split(":");
-                String am_pm = wakeupTime.substring(6);
                 int initialHour = 0;
                 int initialMinute = 0;
-                if(wakeupTimeArr.length == 2){
-                    initialHour = Integer.parseInt(wakeupTimeArr[0]);
-                    initialMinute = Integer.parseInt(wakeupTimeArr[1]);
-                }
 
-                if(am_pm.equals("PM")){
-                    if(initialHour != 12)
-                        initialHour += 12;
-                }else{
-                    if(initialHour == 12)
-                        initialHour = 0;
+                // Set Initial Time
+                if(wakeupTime.length()!=0) {
+
+                    String wakeupTimeArr[] = wakeupTime.substring(0,5).split(":");
+                    String am_pm = wakeupTime.substring(6);
+                    if(wakeupTimeArr.length == 2){
+                        initialHour = Integer.parseInt(wakeupTimeArr[0]);
+                        initialMinute = Integer.parseInt(wakeupTimeArr[1]);
+                    }
+
+                    if(am_pm.equals("PM")){
+                        if(initialHour != 12)
+                            initialHour += 12;
+                    }else{
+                        if(initialHour == 12)
+                            initialHour = 0;
+                    }
                 }
 
                 TimePickerDialog mTimePicker = new TimePickerDialog(UpdateLifestylePreferencesActivity.this, new TimePickerDialog.OnTimeSetListener() {

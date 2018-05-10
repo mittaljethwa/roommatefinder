@@ -22,7 +22,8 @@
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoTitleBar.NoActionBar" />
+            android:theme="@style/AppTheme.NoTitleBar.NoActionBar"
+            android:launchMode="singleTask"/>
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".UpdateLifestylePreferencesActivity" />
         <activity android:name=".UpdateHousingPreferencesActivity" />

@@ -55,13 +55,11 @@ public class FilterActivity extends AppCompatActivity {
         initializeUIElements();
         
         if(sharedPreferences.getString("Filters","")=="")
+            //No filters show default filters
             setDefaultFilters();
         else {
-//            loadCustomFilters();
-            Filters customFilter = new Filters();
-            String searchFilters = sharedPreferences.getString("Filters", "");
-            customFilter = new Gson().fromJson(searchFilters, Filters.class);
-            Log.d("Loading Filters: ",searchFilters);
+            //Load User profile and show custom filters
+            getUserProfileFromFirebase("Custom");
         }
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
@@ -81,17 +79,46 @@ public class FilterActivity extends AppCompatActivity {
         });
     }
 
+    private void loadCustomFilters(Filters customFilter) {
+        if (customFilter==null) {
+            setDefaultFilters();
+        }
+        else {
+            radioGender.check(getGenderID(customFilter.getGender()));
+            radioProfileCategory.check(getProfileCategoryID(customFilter.getProfileCateogry()));
+            radioSmokePref.check(getSmokePrefID(customFilter.getSmokePref()));
+            radioAlcoholPref.check(getAlcoholPrefID(customFilter.getAlcoholPref()));
+            radioPetFriendlyPref.check(getPetFriendlyPrefID(customFilter.getPetFriendlyPref()));
+            seekCleanlinessScale.setProgress(Integer.valueOf(customFilter.getCleanlinessScale()));
+            seekVisitorScale.setProgress(Integer.valueOf(customFilter.getVisitorScale()));
+            seekLoudnessScale.setProgress(Integer.valueOf(customFilter.getLoudnessScale()));
+            inputBedTime.setText(customFilter.getBedTime());
+            inputWakeupTime.setText(customFilter.getWakeupTime());
+
+            inputBedTime.clearFocus();
+            inputWakeupTime.clearFocus();
+        }
+    }
+
     private void saveCustomFilters() {
         Filters customFilters = new Filters();
 
         if (inputBedTime.length() == 0) {
             customFilters.setBedTime("");
         }
+        else {
+            customFilters.setBedTime(inputBedTime.getText().toString());
+        }
 
         if (inputWakeupTime.length() == 0) {
             customFilters.setWakeupTime("");
         }
+        else {
+            customFilters.setWakeupTime(inputWakeupTime.getText().toString());
+        }
 
+        String gender = getGenderSelected(radioGender.getCheckedRadioButtonId());
+        String profileCategory = getProfileCategorySelected(radioProfileCategory.getCheckedRadioButtonId());
         String smokePref = getSmokePrefSelected(radioSmokePref.getCheckedRadioButtonId());
         String alcoholPref = getAlcoholPrefSelected(radioAlcoholPref.getCheckedRadioButtonId());
         String petFriendlyPref = getPetFriendlyPrefSelected(radioPetFriendlyPref.getCheckedRadioButtonId());
@@ -99,16 +126,39 @@ public class FilterActivity extends AppCompatActivity {
         String visitorScale = String.valueOf(seekVisitorScale.getProgress());
         String loudnessScale = String.valueOf(seekLoudnessScale.getProgress());
 
+        if (gender.equals("None")) {
+            customFilters.setGender("");
+        }
+        else {
+            customFilters.setGender(gender);
+        }
+
+        if (profileCategory.equals("None")) {
+            customFilters.setProfileCateogry("");
+        }
+        else {
+            customFilters.setProfileCateogry(profileCategory);
+        }
+
         if (smokePref.equals("None")) {
             customFilters.setSmokePref("");
+        }
+        else {
+            customFilters.setSmokePref(smokePref);
         }
 
         if (alcoholPref.equals("None")) {
             customFilters.setAlcoholPref("");
         }
+        else {
+            customFilters.setAlcoholPref(alcoholPref);
+        }
 
         if (petFriendlyPref.equals("None")) {
             customFilters.setPetFriendlyPref("");
+        }
+        else {
+            customFilters.setPetFriendlyPref(petFriendlyPref);
         }
 
         customFilters.setCleanlinessScale(cleanlinessScale);
@@ -176,6 +226,15 @@ public class FilterActivity extends AppCompatActivity {
                     if(requestType.equals("Default")) {
                         setFilters("Default");
                     }
+                    else if(requestType.equals("Custom")) {
+
+                        Filters customFilter;
+                        String searchFilters = sharedPreferences.getString("Filters", "");
+                        customFilter = new Gson().fromJson(searchFilters, Filters.class);
+                        Log.d("Loading Filters: ",searchFilters);
+
+                        loadCustomFilters(customFilter);
+                    }
                 }
             }
 
@@ -235,7 +294,7 @@ public class FilterActivity extends AppCompatActivity {
             case R.id.radioProfileProfessional:
                 return "Professional";
             default:
-                return "Unknown";
+                return "Any";
         }
 
     }
@@ -245,11 +304,11 @@ public class FilterActivity extends AppCompatActivity {
             case "None":
                 return -1;
             case "Student":
-                return R.id.radioProfileStudent;
+                return R.id.radioStudent;
             case "Professional":
-                return R.id.radioProfileProfessional;
+                return R.id.radioProfessional;
             default:
-                return -1;
+                return R.id.radioAny;
         }
     }
 
@@ -257,14 +316,14 @@ public class FilterActivity extends AppCompatActivity {
         switch (checkedRadioButtonId) {
             case -1:
                 return "None";
-            case R.id.rbProfilePreferencesSmokeYes:
+            case R.id.rbSearchSmokeYes:
                 return "Yes";
-            case R.id.rbProfilePreferencesSmokeNo:
+            case R.id.rbSearchSmokeNo:
                 return "No";
-            case R.id.rbProfilePreferencesSmokeOccasional:
+            case R.id.rbSearchSmokeOccasional:
                 return "Occasional";
             default:
-                return "No";
+                return "None";
         }
     }
 
@@ -273,13 +332,13 @@ public class FilterActivity extends AppCompatActivity {
             case "None":
                 return -1;
             case "Yes":
-                return R.id.rbProfilePreferencesSmokeYes;
+                return R.id.rbSearchSmokeYes;
             case "No":
-                return R.id.rbProfilePreferencesSmokeNo;
+                return R.id.rbSearchSmokeNo;
             case "Occasional":
-                return R.id.rbProfilePreferencesSmokeOccasional;
+                return R.id.rbSearchSmokeOccasional;
             default:
-                return R.id.rbProfilePreferencesSmokeNo;
+                return -1;
         }
     }
 
@@ -287,14 +346,14 @@ public class FilterActivity extends AppCompatActivity {
         switch (checkedRadioButtonId) {
             case -1:
                 return "None";
-            case R.id.rbProfilePreferencesAlcoholYes:
+            case R.id.rbSearchAlcoholYes:
                 return "Yes";
-            case R.id.rbProfilePreferencesAlcoholNo:
+            case R.id.rbSearchAlcoholNo:
                 return "No";
-            case R.id.rbProfilePreferencesAlcoholOccasional:
+            case R.id.rbSearchAlcoholOccasional:
                 return "Occasional";
             default:
-                return "No";
+                return "None";
         }
     }
 
@@ -303,13 +362,13 @@ public class FilterActivity extends AppCompatActivity {
             case "None":
                 return -1;
             case "Yes":
-                return R.id.rbProfilePreferencesAlcoholYes;
+                return R.id.rbSearchAlcoholYes;
             case "No":
-                return R.id.rbProfilePreferencesAlcoholNo;
+                return R.id.rbSearchAlcoholNo;
             case "Occasional":
-                return R.id.rbProfilePreferencesAlcoholOccasional;
+                return R.id.rbSearchSmokeOccasional;
             default:
-                return R.id.rbProfilePreferencesAlcoholNo;
+                return -1;
         }
     }
 
@@ -317,12 +376,12 @@ public class FilterActivity extends AppCompatActivity {
         switch (checkedRadioButtonId) {
             case -1:
                 return "None";
-            case R.id.rbProfilePreferencesPetYes:
+            case R.id.rbSearchPetYes:
                 return "Yes";
-            case R.id.rbProfilePreferencesPetNo:
+            case R.id.rbSearchPetNo:
                 return "No";
             default:
-                return "No";
+                return "None";
         }
     }
 
@@ -331,11 +390,11 @@ public class FilterActivity extends AppCompatActivity {
             case "None":
                 return -1;
             case "Yes":
-                return R.id.rbProfilePreferencesPetYes;
+                return R.id.rbSearchPetYes;
             case "No":
-                return R.id.rbProfilePreferencesPetNo;
+                return R.id.rbSearchPetNo;
             default:
-                return R.id.rbProfilePreferencesPetYes;
+                return -1;
         }
     }
 

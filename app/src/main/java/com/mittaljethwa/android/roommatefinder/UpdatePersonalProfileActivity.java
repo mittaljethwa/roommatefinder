@@ -42,6 +42,7 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private SharedPreferences sharedPreferences;
     private UserProfile userProfile;
+    private RoommateDetails userDetails;
 
     FirebaseAuth auth;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -94,7 +95,7 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
                 }
                 else {
                     Log.d(TAG,"User data snapshot is not null, Loading Data" + dataSnapshot.getValue());
-                    userProfile = dataSnapshot.getValue(UserProfile.class);
+                    userDetails = dataSnapshot.getValue(RoommateDetails.class);
                     loadData();
                 }
             }
@@ -107,13 +108,13 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-        String firstName = userProfile.getFirstname();
-        String lastName = userProfile.getLastname();
-        String bio = userProfile.getBio();
-        String gender = userProfile.getGender();
-        String profileCategory = userProfile.getProfileCategory();
-        String birthdate = userProfile.getBirthdate();
-        Boolean isActivelySearching = userProfile.getActivelySearching();
+        String firstName = userDetails.getFirstname();
+        String lastName = userDetails.getLastname();
+        String bio = userDetails.getBio();
+        String gender = userDetails.getGender();
+        String profileCategory = userDetails.getProfileCategory();
+        String birthdate = userDetails.getBirthdate();
+        Boolean isActivelySearching = userDetails.getActivelySearching();
 
         inputFirstname.setText(firstName);
         inputLastname.setText(lastName);
@@ -129,7 +130,7 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
 
         if(Utils.isNetworkConnected(getApplicationContext())) {
 
-            userProfile = new UserProfile();
+            userDetails = new RoommateDetails();
             String firstName = inputFirstname.getText().toString().trim();
             String lastName = inputLastname.getText().toString().trim();
             String bio = inputBio.getText().toString().trim();
@@ -176,18 +177,18 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
                 return;
             }
 
-            userProfile.setFirstname(firstName);
-            userProfile.setLastname(lastName);
-            userProfile.setBio(bio);
-            userProfile.setBirthdate(birthdate);
-            userProfile.setGender(gender);
-            userProfile.setProfileCategory(profileCategory);
-            userProfile.setActivelySearching(isActivelySearching);
-            userProfile.setEmail(user.getEmail());
+            userDetails.setFirstname(firstName);
+            userDetails.setLastname(lastName);
+            userDetails.setBio(bio);
+            userDetails.setBirthdate(birthdate);
+            userDetails.setGender(gender);
+            userDetails.setProfileCategory(profileCategory);
+            userDetails.setActivelySearching(isActivelySearching);
+            userDetails.setEmail(user.getEmail());
 
             progressBar.setVisibility(View.VISIBLE);
 
-            saveUserProfileOnServer(userProfile);
+            saveUserProfileOnServer(userDetails);
 
         }
         else {
@@ -197,26 +198,26 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
         }
     }
 
-    private void saveUserProfileOnDevice(UserProfile userProfile) {
+    private void saveUserProfileOnDevice(RoommateDetails userProfile) {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString(UserProfile.class.getSimpleName(), new Gson().toJson(userProfile));
             editor.apply();
     }
 
-    private void saveUserProfileOnServer(final UserProfile userProfile) {
+    private void saveUserProfileOnServer(final RoommateDetails userDetails) {
 
 //        //Creating a new user object on server and get key
         final String userKey = auth.getCurrentUser().getUid();
 
         // pushing user to 'Users' node using the userKey
-        userDatabase.child(userKey).setValue(userProfile, new DatabaseReference.CompletionListener() {
+        userDatabase.child(userKey).setValue(userDetails, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
                 //If databaseError -> NULL, transaction was successful, redirect to home activity
                 if (databaseError==null) {
 
-                    saveUserProfileOnDevice(userProfile);
+                    saveUserProfileOnDevice(userDetails);
 
                     updateUI(userKey);
                     startActivity(new Intent(UpdatePersonalProfileActivity.this, HomeActivity.class));
