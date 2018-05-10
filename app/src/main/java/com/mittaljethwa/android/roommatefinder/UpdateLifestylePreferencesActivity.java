@@ -40,8 +40,8 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
     private Button buttonSave;
 
     private String userKey;
-    private String bedTime;
-    private String wakeupTime;
+    private String bedTime = "";
+    private String wakeupTime = "";
     private ProgressBar progressBar;
     private SharedPreferences sharedPreferences;
     private LifestylePreference lifestylePreference;
@@ -82,16 +82,47 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
         inputBedTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // Set Initial Time
+                String bedTimeArr[] = bedTime.substring(0,5).split(":");
+                String am_pm = bedTime.substring(6);
+                int initialHour = 0;
+                int initialMinute = 0;
+                if(bedTimeArr.length == 2){
+                    initialHour = Integer.parseInt(bedTimeArr[0]);
+                    initialMinute = Integer.parseInt(bedTimeArr[1]);
+                }
+
+                if(am_pm.equals("PM")){
+                    if(initialHour != 12)
+                        initialHour = initialHour + 12;
+                }else{
+                    if(initialHour == 12)
+                        initialHour = 0;
+                }
                 TimePickerDialog mTimePicker = new TimePickerDialog(UpdateLifestylePreferencesActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        String selectedHourString = selectedHour > 9 ? String.valueOf(selectedHour) : "0" + selectedHour;
                         String selectedMinuteString = selectedMinute > 9 ? String.valueOf(selectedMinute) : "0" + selectedMinute;
-                        inputBedTime.setText(selectedHourString + ":" + selectedMinuteString);
-                        bedTime = selectedHourString + selectedMinuteString;
+                        String am_pm = "PM";
+                        String selectedHourString = "";
+                        if(selectedHour == 0 || selectedHour == 12){
+                            selectedHourString = "12";
+                        }
+                        if(selectedHour > 12) {
+                            am_pm = "PM";
+                            int actualHours = selectedHour - 12;
+                            selectedHourString = actualHours > 9 ? String.valueOf(actualHours) : "0" + actualHours;
+                        }else if(selectedHour < 12){
+                            am_pm = "AM";
+                            if(selectedHour != 0)
+                                selectedHourString = selectedHour > 9 ? String.valueOf(selectedHour) : "0" + selectedHour;
+                        }
+                        bedTime = selectedHourString + ":" + selectedMinuteString + " " + am_pm;
+                        inputBedTime.setText(bedTime);
                     }
-                }, 0, 0, true);//Yes 24 hour time
-                mTimePicker.setTitle("Select From Time");
+                }, initialHour, initialMinute, false);//Yes 24 hour time
+                mTimePicker.setTitle("Select Bed Time");
                 mTimePicker.show();
             }
         });
@@ -99,16 +130,48 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
         inputWakeupTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // Set Initial Time
+                String wakeupTimeArr[] = wakeupTime.substring(0,5).split(":");
+                String am_pm = wakeupTime.substring(6);
+                int initialHour = 0;
+                int initialMinute = 0;
+                if(wakeupTimeArr.length == 2){
+                    initialHour = Integer.parseInt(wakeupTimeArr[0]);
+                    initialMinute = Integer.parseInt(wakeupTimeArr[1]);
+                }
+
+                if(am_pm.equals("PM")){
+                    if(initialHour != 12)
+                        initialHour += 12;
+                }else{
+                    if(initialHour == 12)
+                        initialHour = 0;
+                }
+
                 TimePickerDialog mTimePicker = new TimePickerDialog(UpdateLifestylePreferencesActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        String selectedHourString = selectedHour > 9 ? String.valueOf(selectedHour) : "0" + selectedHour;
                         String selectedMinuteString = selectedMinute > 9 ? String.valueOf(selectedMinute) : "0" + selectedMinute;
-                        inputWakeupTime.setText(selectedHourString + ":" + selectedMinuteString);
-                        wakeupTime = selectedHourString + selectedMinuteString;
+                        String am_pm = "PM";
+                        String selectedHourString = "";
+                        if(selectedHour == 0 || selectedHour == 12){
+                            selectedHourString = "12";
+                        }
+                        if(selectedHour > 12) {
+                            am_pm = "PM";
+                            int actualHours = selectedHour - 12;
+                            selectedHourString = actualHours > 9 ? String.valueOf(actualHours) : "0" + actualHours;
+                        }else if(selectedHour < 12){
+                            am_pm = "AM";
+                            if(selectedHour != 0)
+                                selectedHourString = selectedHour > 9 ? String.valueOf(selectedHour) : "0" + selectedHour;
+                        }
+                        wakeupTime = selectedHourString + ":" + selectedMinuteString + " " + am_pm;;
+                        inputWakeupTime.setText(wakeupTime);
                     }
-                }, 0, 0, true);//Yes 24 hour time
-                mTimePicker.setTitle("Select To Time");
+                }, initialHour, initialMinute, false);//Yes 24 hour time
+                mTimePicker.setTitle("Select Wakeup Time");
                 mTimePicker.show();
             }
         });
@@ -388,8 +451,8 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
         int cleanlinessScale = lifestylePreference.getCleanlinessScale();
         int visitorScale = lifestylePreference.getLoudnessScale();
         int loudnessScale = lifestylePreference.getVisitorScale();
-        String bedTime = lifestylePreference.getBedTime();
-        String wakeupTime = lifestylePreference.getWakeupTime();
+        bedTime = lifestylePreference.getBedTime();
+        wakeupTime = lifestylePreference.getWakeupTime();
 
         radioFoodPref.check(getFoodPrefID(foodPref));
         radioSmokePref.check(getSmokePrefID(smokePref));
