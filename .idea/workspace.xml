@@ -20,15 +20,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/FilterActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/FilterActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/HomeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/HomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdateLifestylePreferencesActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdateLifestylePreferencesActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdatePersonalProfileActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdatePersonalProfileActivity.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -211,8 +206,8 @@
       <file leaf-file-name="UpdatePersonalProfileActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdatePersonalProfileActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="137" column="17" lean-forward="true" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
+            <state relative-caret-position="-1085">
+              <caret line="133" column="28" lean-forward="false" selection-start-line="133" selection-start-column="28" selection-end-line="133" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -231,10 +226,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>j</find>
-      <find>g</find>
-      <find>setGen</find>
-      <find>buttonSave</find>
       <find>getHou</find>
       <find>userKey</find>
       <find>radioFoodPref</find>
@@ -260,15 +251,19 @@
       <find>userProfil</find>
       <find>userProfilr</find>
       <find>userProfile</find>
+      <find>User data snapshot is not n</find>
       <find>save</find>
+      <find>userDetails</find>
+      <find>readData</find>
+      <find>userDet</find>
     </findStrings>
     <replaceStrings>
       <replace>padding=&quot;5dp&quot;</replace>
       <replace>layout_margin=&quot;5dp&quot;</replace>
     </replaceStrings>
     <dirStrings>
-      <dir>C:\Drive D\MS in CS\Semester 2\CS 646\Assignments\RoommateFinder\app\src\main\java\com\mittaljethwa\android\roommatefinder</dir>
       <dir>C:\Drive D\MS in CS\Semester 2\CS 646\Assignments\RoommateFinder\app</dir>
+      <dir>C:\Drive D\MS in CS\Semester 2\CS 646\Assignments\RoommateFinder\app\src\main\java\com\mittaljethwa\android\roommatefinder</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -2334,7 +2329,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525982895850" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525983323907" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2382,7 +2377,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525982895850" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525983323907" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2565,7 +2560,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525982895851" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525983323907" />
       </method>
     </configuration>
     <list size="1">
@@ -3254,8 +3249,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdatePersonalProfileActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="137" column="17" lean-forward="true" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
+        <state relative-caret-position="-1085">
+          <caret line="133" column="28" lean-forward="false" selection-start-line="133" selection-start-column="28" selection-end-line="133" selection-end-column="28" />
           <folding />
         </state>
       </provider>

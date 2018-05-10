@@ -130,7 +130,8 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
 
         if(Utils.isNetworkConnected(getApplicationContext())) {
 
-            userDetails = new RoommateDetails();
+            if (userDetails == null)
+                userDetails = new RoommateDetails();
             String firstName = inputFirstname.getText().toString().trim();
             String lastName = inputLastname.getText().toString().trim();
             String bio = inputBio.getText().toString().trim();
