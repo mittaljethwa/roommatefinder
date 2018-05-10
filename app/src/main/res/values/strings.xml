@@ -79,4 +79,15 @@
     <string name="profile">Profile</string>
     <string name="any">Any</string>
     <string name="message_filters_saved">Filters Saved</string>
+
+    <string name="place_id">placeID</string>
+    <string name="search_radius">searchRadius</string>
+    <string name="min_Budget">minBudget</string>
+    <string name="max_Budget">maxBudget</string>
+    <string name="room_type">roomType</string>
+    <string name="cleanliness_scale">cleanlinessScale</string>
+    <string name="loudness_scale">loudnessScale</string>
+    <string name="visitor_scale">visitorScale</string>
+    <string name="bed_Time">bedTime</string>
+    <string name="wakeup_Time">wakeupTime</string>
 </resources>
