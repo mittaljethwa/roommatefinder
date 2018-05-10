@@ -65,7 +65,7 @@
         android:paddingBottom="10dp"
         android:visibility="gone"/>
     <TextView
-        android:id="@+id/noClasses"
+        android:id="@+id/textNoRoommates"
         android:layout_below="@+id/view_below_filters"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

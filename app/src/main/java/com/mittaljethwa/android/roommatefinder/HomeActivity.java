@@ -34,6 +34,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity
@@ -46,6 +47,10 @@ public class HomeActivity extends AppCompatActivity
     private ProgressBar progressBar;
     private TextView textAccountName;
     private TextView textAccountEmail;
+    private RecyclerView recyclerRoommates;
+    private TextView noRoommatesTextView;
+    private String gender = null;
+
     private SharedPreferences sharedPreferences;
     private UserProfile userProfile;
     private List<RoommateDetails> roomDetailsList;
@@ -59,14 +64,18 @@ public class HomeActivity extends AppCompatActivity
         toolbar.setTitle(getString(R.string.title_activity_home));
         setSupportActionBar(toolbar);
 
+        String currentUserKey = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        sharedPreferences = getSharedPreferences(MainActivity.class.getSimpleName(),MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences(currentUserKey,MODE_PRIVATE);
+
+        recyclerRoommates = this.findViewById(R.id.recyclerRoommates);
+        noRoommatesTextView = this.findViewById(R.id.textNoRoommates);
 
         if (progressBar != null) {
             progressBar.setVisibility(View.GONE);
         }
 
-        loadInitialResults();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +106,15 @@ public class HomeActivity extends AppCompatActivity
 
             textAccountName.setText(userProfile.getFirstname() + " " + userProfile.getLastname());
             textAccountEmail.setText(userProfile.getEmail());
+            gender = userProfile.getGender();
+        }
+
+        if (sharedPreferences.getString("Filters","") == "")
+            //No filters are set
+            loadInitialResults();
+        else {
+            //Use user applied filters
+            Log.d("User filters: ","filters present");
         }
 
 
@@ -120,34 +138,41 @@ public class HomeActivity extends AppCompatActivity
 
     private void loadInitialResults() {
 
-        String userGender = getCurrentUserGender();
+//        getCurrentUserGender();
 
 
         DatabaseReference userReference = FirebaseUtils.getRefToUsersNode();
         Query query;
 
-        if (userGender==null) {
+        if (gender==null) {
             query = userReference.orderByChild("lastname");
+            Log.d("Gender","ABSENT");
         }
         else {
-            query = userReference.orderByChild("gender").equalTo(userGender);
+            query = userReference.orderByChild("gender").equalTo(gender);
+            Log.d("Gender","PRESENT");
         }
+
 
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                roomDetailsList =  new ArrayList<>();
+                String currentUserKey = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                Log.d("Current USER KEY ",currentUserKey );
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot user : dataSnapshot.getChildren()) {
-                        RoommateDetails roommateDetails = user.getValue(RoommateDetails.class);
-                        Log.d(user.child("firstname").getValue().toString(), user.getValue().toString() );
-                        if( roommateDetails.getHousingPreferences() != null)
-                            Log.d(user.child("firstname").getValue().toString(), roommateDetails.getHousingPreferences().get("placeID").toString());
-                        if( roommateDetails.getLifestylePreferences() != null)
-                            Log.d(user.child("firstname").getValue().toString(), roommateDetails.getLifestylePreferences().get("petFriendlyPref").toString());
-                        //roomDetailsList.add(roommateDetails);
+
+                        //Get all users matching the query, except self.
+                        if(!user.getKey().equals(currentUserKey)) {
+
+                            Log.d("USER KEY ",user.getKey());
+                            RoommateDetails roommateDetails = user.getValue(RoommateDetails.class);
+                            roomDetailsList.add(roommateDetails);
+                        }
                     }
 
-//                    updateRecyclerUI();
+                    updateRecyclerUI();
                 }
             }
 
@@ -159,26 +184,27 @@ public class HomeActivity extends AppCompatActivity
 
     }
 
-//    void updateRecyclerUI() {
-//        if (roomDetailsList.size() == 0) {
-//            noClassesTextView.setVisibility(View.VISIBLE);
-//            recyclerCourses.setVisibility(View.GONE);
-//        }
-//        else {
-//            noClassesTextView.setVisibility(View.GONE);
-//            recyclerCourses.setVisibility(View.VISIBLE);
-//            ClassesRecyclerAdapter adapter = new ClassesRecyclerAdapter(classDetailsList, false, getResources().getColor(R.color.green), new ClassesRecyclerAdapter.ItemClickedListener() {
-//                @Override
-//                public void onItemActionButtonClicked(ClassDetails classDetails) {
-//                    enrollToTheCourse(classDetails.getWaitlist() > 0, classDetails);
-//                }
-//            });
-//            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-//            recyclerCourses.setLayoutManager(mLayoutManager);
-//            recyclerCourses.setItemAnimator(new DefaultItemAnimator());
-//            recyclerCourses.setAdapter(adapter);
-//        }
-//    }
+    void updateRecyclerUI() {
+        if (roomDetailsList.size() == 0) {
+            noRoommatesTextView.setVisibility(View.VISIBLE);
+            recyclerRoommates.setVisibility(View.GONE);
+        }
+        else {
+            noRoommatesTextView.setVisibility(View.GONE);
+            recyclerRoommates.setVisibility(View.VISIBLE);
+            RoommatesRecyclerAdapter adapter = new RoommatesRecyclerAdapter(roomDetailsList, new RoommatesRecyclerAdapter.ItemClickedListener() {
+                @Override
+                public void onItemActionButtonClicked(RoommateDetails roommateDetails) {
+                    //enrollToTheCourse(classDetails.getWaitlist() > 0, classDetails);
+                    Log.d("Item Clicked",roommateDetails.getFirstname());
+                }
+            });
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+            recyclerRoommates.setLayoutManager(mLayoutManager);
+            recyclerRoommates.setItemAnimator(new DefaultItemAnimator());
+            recyclerRoommates.setAdapter(adapter);
+        }
+    }
 
     @Override
     public void onBackPressed() {
@@ -243,9 +269,11 @@ public class HomeActivity extends AppCompatActivity
     }
 
     void loadUserProfile() {
-        String userProfileData = sharedPreferences.getString(UserProfile.class.getSimpleName(), "");
-        Log.d(TAG,"User data: " + userProfileData);
+        final String userKey = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        getUserProfileFromFirebase(userKey);
+        String userProfileData = sharedPreferences.getString(userKey, "");
         userProfile = new Gson().fromJson(userProfileData, UserProfile.class);
+        Log.d(TAG,"User data: " + userProfile);
     }
     //sign out method
     public void signOut() {
@@ -272,10 +300,9 @@ public class HomeActivity extends AppCompatActivity
         }
     }
 
-    public String getCurrentUserGender() {
+    public void getCurrentUserGender() {
 
         String userKey = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        final String[] gender = new String[1];
         FirebaseUtils.getRefToSpecificUser(userKey).child("gender").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -284,7 +311,7 @@ public class HomeActivity extends AppCompatActivity
                 }
                 else {
                     Log.d(TAG,"Gender data snapshot is not null, Loading Data " + dataSnapshot.getValue());
-                    gender[0] = dataSnapshot.getValue().toString();
+                    gender = dataSnapshot.getValue().toString();
                 }
             }
 
@@ -293,6 +320,28 @@ public class HomeActivity extends AppCompatActivity
 
             }
         });
-        return gender[0];
+    }
+
+    public void getUserProfileFromFirebase(final String userKey) {
+        FirebaseUtils.getRefToSpecificUser(userKey).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getValue() == null) {
+                    Log.d(TAG, "User profile data snapshot is null, No data to load");
+                }
+                else {
+                    Log.d(TAG,"User profile data snapshot is not null, Loading Data " + dataSnapshot.getValue());
+                    userProfile = dataSnapshot.getValue(UserProfile.class);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString(userKey, new Gson().toJson(userProfile));
+                    editor.apply();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }

@@ -16,14 +16,11 @@ import java.util.List;
 public class RoommatesRecyclerAdapter extends RecyclerView.Adapter<RoommatesRecyclerAdapter.ViewHolder> {
         private List<RoommateDetails> roommateDetails;
         private ItemClickedListener listener;
-        private boolean alreadyEnroledClasses;
-        private int buttonColor;
 
-        public RoommatesRecyclerAdapter(List<RoommateDetails> roommateDetailsList, boolean enrolledClasses, int buttonColor, ItemClickedListener listener) {
+
+        public RoommatesRecyclerAdapter(List<RoommateDetails> roommateDetailsList, ItemClickedListener listener) {
             this.roommateDetails = roommateDetailsList;
             this.listener = listener;
-            this.buttonColor = buttonColor;
-            this.alreadyEnroledClasses = enrolledClasses;
         }
 
         @Override
@@ -34,7 +31,7 @@ public class RoommatesRecyclerAdapter extends RecyclerView.Adapter<RoommatesRecy
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
-//            holder.bindData(roommateDetails.get(position));
+            holder.bindData(roommateDetails.get(position));
         }
 
         @Override
@@ -44,27 +41,29 @@ public class RoommatesRecyclerAdapter extends RecyclerView.Adapter<RoommatesRecy
 
         class ViewHolder extends RecyclerView.ViewHolder {
             TextView txtTitle;
-            TextView txtSubject;
-            TextView txtDescription;
-            TextView txtTime;
-            TextView txtOtherDetails;
-            Button btnAction;
+            TextView txtProfileCategory;
+            TextView txtBio;
+            TextView txtAge;
+            TextView txtMaxBudget;
+            Button btnViewProfile;
             public ViewHolder(View itemView) {
                 super(itemView);
                 txtTitle = itemView.findViewById(R.id.title);
-//                txtSubject = itemView.findViewById(R.id.subject);
-//                txtDescription = itemView.findViewById(R.id.description);
-//                txtTime = itemView.findViewById(R.id.time);
-//                btnAction = itemView.findViewById(R.id.btnRemove);
-//                btnAction.setBackgroundColor(buttonColor);
-//                txtOtherDetails = itemView.findViewById(R.id.otherDetails);
+                txtProfileCategory = itemView.findViewById(R.id.profileCategory);
+                txtBio= itemView.findViewById(R.id.bio);
+                txtAge = itemView.findViewById(R.id.age);
+                btnViewProfile = itemView.findViewById(R.id.viewProfileButton);
+                txtMaxBudget= itemView.findViewById(R.id.maxBudget);
             }
 
-//            public void bindData(RoommateDetails roommateDetails) {
-//                txtTitle.setText(roommateDetails.getTitle() + " (" + classDetails.getId() + ")");
-//                txtSubject.setText(roommateDetails.getDepartment() + (classDetails.getWaitlist() > 0 ? " (Waitlist : " + classDetails.getWaitlist() + ")" : ""));
-//                txtDescription.setText(classDetails.getDescription());
-//                txtOtherDetails.setText(classDetails.getSubject() + " - " + classDetails.getInstructor());
+            public void bindData(RoommateDetails roommateDetails) {
+                txtTitle.setText(roommateDetails.getFirstname() + " " + roommateDetails.getLastname());
+                txtProfileCategory.setText(roommateDetails.getProfileCategory());
+                txtBio.setText(roommateDetails.getBio());
+                if (roommateDetails.getHousingPreferences() != null)
+                    txtMaxBudget.setText("$"+roommateDetails.getHousingPreferences().get("maxBudget").toString());
+                else
+                    txtMaxBudget.setText("$ NULL");
 //                if (classDetails.getStartTime() != null && !classDetails.getStartTime().trim().isEmpty()) {
 //                    String timeString = classDetails.getStartTime().substring(0, 2);
 //                    timeString += ":";
@@ -77,20 +76,16 @@ public class RoommatesRecyclerAdapter extends RecyclerView.Adapter<RoommatesRecy
 //                    }
 //                    txtTime.setText(timeString);
 //                }
-//                btnAction.setTag(classDetails);
-//                if (alreadyEnroledClasses) {
-//                    btnAction.setText(R.string.drop_class);
-//                }
-//                else {
-//                    btnAction.setText(R.string.enroll_class);
-//                }
-//                btnAction.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        listener.onItemActionButtonClicked((ClassDetails)view.getTag());
-//                    }
-//                });
-//            }
+                txtAge.setText(String.valueOf(25));
+                btnViewProfile.setTag(roommateDetails);
+
+                btnViewProfile.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        listener.onItemActionButtonClicked((RoommateDetails) view.getTag());
+                    }
+                });
+            }
         }
 
         interface ItemClickedListener {

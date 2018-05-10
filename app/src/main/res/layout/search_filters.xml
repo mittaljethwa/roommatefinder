@@ -74,23 +74,24 @@
                 android:text="@string/str_gender"/>
 
             <RadioGroup
+                android:id="@+id/gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/radioButtonMale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/str_male"/>
+                    android:text="@string/str_male" />
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/radioButtonFemale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/str_female"/>
+                    android:text="@string/str_female" />
             </RadioGroup>
         </LinearLayout>
 
@@ -111,27 +112,28 @@
                 android:text="@string/label_profile_category"/>
 
             <RadioGroup
+                android:id="@+id/rgProfileCategory"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioButton5"
+                    android:id="@+id/radioStudent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/str_student"/>
+                    android:text="@string/str_student" />
 
                 <RadioButton
-                    android:id="@+id/radioButton4"
+                    android:id="@+id/radioProfessional"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/str_professional"/>
+                    android:text="@string/str_professional" />
 
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/radioAny"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/any"/>
+                    android:text="@string/any" />
             </RadioGroup>
 
         </LinearLayout>
@@ -153,31 +155,31 @@
                 android:text="@string/str_smoke"/>
 
             <RadioGroup
+                android:id="@+id/rgProfilePreferencesSmoke"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:id="@+id/rgSearchSmoke">
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/rbSearchSmokeYes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/str_yes"/>
+                    android:text="@string/str_yes" />
 
                 <RadioButton
                     android:id="@+id/rbSearchSmokeNo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/str_no"/>
+                    android:text="@string/str_no" />
 
                 <RadioButton
                     android:id="@+id/rbSearchSmokeOccasional"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/str_occasional"/>
+                    android:text="@string/str_occasional" />
             </RadioGroup>
 
         </LinearLayout>
@@ -198,31 +200,31 @@
                 android:text="@string/str_alcohol"/>
 
             <RadioGroup
+                android:id="@+id/rgProfilePreferencesAlcohol"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:id="@+id/rgSearchAlcohol">
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/rbSearchAlcoholYes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/str_yes"/>
+                    android:text="@string/str_yes" />
 
                 <RadioButton
                     android:id="@+id/rbSearchAlcoholNo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/str_no"/>
+                    android:text="@string/str_no" />
 
                 <RadioButton
                     android:id="@+id/rbSearchAlcoholOccasional"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/str_occasional"/>
+                    android:text="@string/str_occasional" />
             </RadioGroup>
 
         </LinearLayout>
@@ -243,24 +245,24 @@
                 android:text="@string/pet_friendly"/>
 
             <RadioGroup
+                android:id="@+id/rgProfilePreferencesPet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:id="@+id/rgSearchPet">
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/rbSearchPetYes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/str_yes"/>
+                    android:text="@string/str_yes" />
 
                 <RadioButton
                     android:id="@+id/rbSearchPetNo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/str_no"/>
+                    android:text="@string/str_no" />
 
             </RadioGroup>
 
@@ -282,12 +284,12 @@
                 android:text="@string/str_cleanliness"/>
 
             <SeekBar
-                android:id="@+id/sbSearchCleanliness"
+                android:id="@+id/sbProfilePreferencesCleanliness"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:max="10"/>
+                android:max="10" />
         </LinearLayout>
 
         <LinearLayout
@@ -306,12 +308,12 @@
                 android:text="@string/str_visitor"/>
 
             <SeekBar
-                android:id="@+id/sbSearchVisitor"
+                android:id="@+id/sbProfilePreferencesVisitor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:max="10"/>
+                android:max="10" />
         </LinearLayout>
 
         <LinearLayout
@@ -330,12 +332,12 @@
                 android:text="@string/str_loudness"/>
 
             <SeekBar
-                android:id="@+id/sbSearchLoudness"
+                android:id="@+id/sbProfilePreferencesLoudness"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:max="10"/>
+                android:max="10" />
 
         </LinearLayout>
 
@@ -344,13 +346,13 @@
             android:layout_height="wrap_content">
 
             <EditText
+                android:id="@+id/bedTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/bed_time"
-                android:id="@+id/etSearchBedTime"
                 android:drawablePadding="5dp"
                 android:drawableStart="@android:drawable/ic_lock_idle_alarm"
-                android:inputType="time"/>
+                android:hint="@string/bed_time"
+                android:inputType="time" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -358,13 +360,13 @@
             android:layout_height="wrap_content">
 
             <EditText
+                android:id="@+id/wakeupTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/wakeup_time"
-                android:id="@+id/etSearchWakeupTime"
                 android:drawablePadding="5dp"
                 android:drawableStart="@drawable/ic_wb_sunny_black_24dp"
-                android:inputType="time"/>
+                android:hint="@string/wakeup_time"
+                android:inputType="time" />
         </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
