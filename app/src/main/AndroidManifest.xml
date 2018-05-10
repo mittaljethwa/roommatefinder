@@ -22,8 +22,8 @@
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoTitleBar.NoActionBar"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoTitleBar.NoActionBar" />
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".UpdateLifestylePreferencesActivity" />
         <activity android:name=".UpdateHousingPreferencesActivity" />
@@ -32,7 +32,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCTc7jsz_mszeCohjGUDZWaU3mlman8u0Y" />
 
-        <activity android:name=".FilterActivity"></activity>
+        <activity android:name=".FilterActivity" />
+        <activity android:name=".ProfileViewActivity"></activity>
     </application>
 
 </manifest>
