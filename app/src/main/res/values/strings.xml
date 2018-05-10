@@ -73,4 +73,9 @@
     <string name="lifestyle_preferences">Lifestyle Preferences</string>
     <string name="label_profile">Profile</string>
     <string name="label_housing_preferences">Housing Preferences</string>
+    <string name="no_filter_result">No Roommate found. Please expand your filters.</string>
+    <string name="applyFilter">Apply Filter</string>
+    <string name="reset">Clear</string>
+    <string name="profile">Profile</string>
+    <string name="any">Any</string>
 </resources>

@@ -192,35 +192,44 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
         if(Utils.isNetworkConnected(getApplicationContext())) {
 
             housePreference = new HousePreference();
-            String location = mAutocompleteView.getText().toString().trim();
-            float radius = Float.valueOf(inputRadius.getText().toString().trim());
-            float minBudget = Float.valueOf(inputMinBudget.getText().toString().trim());
-            float maxBudget = Float.valueOf(inputMaxBudget.getText().toString().trim());
-            String roomType = getRoomTypeSelected(radioRoomType.getCheckedRadioButtonId());
+            String location;
+            float radius;
+            float minBudget;
+            float maxBudget;
+            String roomType;
 
-            if (TextUtils.isEmpty(location)) {
+            roomType = getRoomTypeSelected(radioRoomType.getCheckedRadioButtonId());
+            if (roomType.equals("None")) {
+                Toast.makeText(getApplicationContext(), "Please Select Preferred Room Type!",Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (TextUtils.isEmpty(mAutocompleteView.getText().toString().trim())) {
                 Toast.makeText(getApplicationContext(), "Enter Location!", Toast.LENGTH_SHORT).show();
                 return;
+            }else{
+                location = mAutocompleteView.getText().toString().trim();
             }
 
             if (TextUtils.isEmpty(inputRadius.getText().toString())) {
                 Toast.makeText(getApplicationContext(), "Enter Preferred Radius!", Toast.LENGTH_SHORT).show();
                 return;
+            }else{
+                radius = Float.valueOf(inputRadius.getText().toString().trim());
             }
 
             if (TextUtils.isEmpty(inputMinBudget.getText().toString())) {
                 Toast.makeText(getApplicationContext(), "Enter Minimum Budget!", Toast.LENGTH_SHORT).show();
                 return;
+            }else{
+                minBudget = Float.valueOf(inputMinBudget.getText().toString().trim());
             }
 
             if (TextUtils.isEmpty(inputMaxBudget.getText().toString())) {
                 Toast.makeText(getApplicationContext(), "Enter Maximum Budget!", Toast.LENGTH_SHORT).show();
                 return;
-            }
-
-            if (roomType.equals("None")) {
-                Toast.makeText(getApplicationContext(), "Please Select Preferred Room Type!",Toast.LENGTH_SHORT).show();
-                return;
+            }else{
+                maxBudget = Float.valueOf(inputMaxBudget.getText().toString().trim());
             }
 
             housePreference.setPlaceID(preferredLocationPlaceID);
@@ -254,7 +263,7 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
 
                     saveUserProfileOnDevice(housePreference);
 
-                    startActivity(new Intent(UpdateHousingPreferencesActivity.this, HomeActivity.class));
+                    startActivity(new Intent(UpdateHousingPreferencesActivity.this, UpdateLifestylePreferencesActivity.class));
                     finish();
 
                 }
@@ -334,9 +343,7 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
         float maxBudget = housePreference.getMaxBudget();
         String roomType = housePreference.getRoomType();
 
-        Log.i(TAG,"Place name to set: "+preferredLocationPlaceName);
         mAutocompleteView.setText(preferredLocationPlaceName);
-        mAutocompleteView.setSelection(mAutocompleteView.length());
         inputRadius.setText(String.valueOf(radius));
         inputMinBudget.setText(String.valueOf(minBudget));
         inputMaxBudget.setText(String.valueOf(maxBudget));

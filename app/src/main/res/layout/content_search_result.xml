@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".HomeActivity">
+    <!--tools:showIn="@layout/activity_home">-->
+
+    <LinearLayout
+        android:id="@+id/linButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/applyFilterButton"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@color/primaryDarkColor"
+            android:text="@string/applyFilter"
+            android:textColor="@android:color/white"
+            android:layout_weight="1"
+            android:textStyle="bold" />
+        <View
+            android:layout_width="10dp"
+            android:layout_height="1dp"/>
+
+        <Button
+            android:id="@+id/resetButton"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:background="?attr/colorButtonNormal"
+            android:text="@string/reset"
+            android:textColor="@color/primaryDarkColor"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <View
+        android:id="@+id/view_below_filters"
+        android:layout_below="@+id/linButtons"
+        android:background="@color/time"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerRoommates"
+        android:layout_below="@+id/view_below_filters"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:paddingBottom="10dp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/noClasses"
+        android:layout_below="@+id/view_below_filters"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:layout_marginTop="15dp"
+        android:textSize="16sp"
+        android:gravity="center_horizontal"
+        android:text="@string/no_filter_result"/>
+
+</RelativeLayout>

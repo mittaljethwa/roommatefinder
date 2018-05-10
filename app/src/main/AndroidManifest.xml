@@ -25,12 +25,13 @@
             android:theme="@style/AppTheme.NoTitleBar.NoActionBar" />
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".UpdateLifestylePreferencesActivity" />
-        <activity android:name=".UpdateHousingPreferencesActivity"></activity>
+        <activity android:name=".UpdateHousingPreferencesActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCTc7jsz_mszeCohjGUDZWaU3mlman8u0Y"/>
+            android:value="AIzaSyCTc7jsz_mszeCohjGUDZWaU3mlman8u0Y" />
 
+        <activity android:name=".FilterActivity"></activity>
     </application>
 
 </manifest>
