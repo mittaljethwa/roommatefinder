@@ -259,10 +259,11 @@ public class FilterActivity extends AppCompatActivity {
         if (filterType.equals("Default")) {
             Log.d(TAG,"Setting default filters gender: "+userProfile.getGender());
 
-
             radioGender.check(getGenderID(userProfile.getGender()));
             radioProfileCategory.check(R.id.radioAny);
-
+            seekCleanlinessScale.setProgress(5);
+            seekVisitorScale.setProgress(5);
+            seekLoudnessScale.setProgress(5);
         }
         else {
             Log.d(TAG,"Setting custom filters");
