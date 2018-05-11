@@ -1,5 +1,6 @@
 package com.mittaljethwa.android.roommatefinder;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 public class ProfileViewActivity extends AppCompatActivity {
     private static final String TAG = "ProfileViewActivity";
@@ -41,6 +43,7 @@ public class ProfileViewActivity extends AppCompatActivity {
     private TextView txtViewVisitorScale;
     private ProgressBar progressBar;
     private RoommateDetails userDetails;
+    private SharedPreferences sharedPreferences;
 
     FirebaseAuth auth;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -56,6 +59,7 @@ public class ProfileViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile_view);
 
         auth = FirebaseAuth.getInstance();
+        sharedPreferences = getSharedPreferences(MainActivity.class.getSimpleName(),MODE_PRIVATE);
 
         initializeUIElements();
 
@@ -66,7 +70,7 @@ public class ProfileViewActivity extends AppCompatActivity {
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         progressBar.setVisibility(View.VISIBLE);
-        readUserDataFromFirebase();
+        readRoommateProfile();
     }
 
     private OnCompleteListener<PlaceBufferResponse> mUpdatePlaceDetailsCallback
@@ -94,6 +98,18 @@ public class ProfileViewActivity extends AppCompatActivity {
         }
     };
 
+    private void readRoommateProfile() {
+
+        String roommateProfile = sharedPreferences.getString("RoommateProfile", "");
+        userDetails = new Gson().fromJson(roommateProfile, RoommateDetails.class);
+        String locationPlaceID = userDetails.getHousingPreferences().get(getString(R.string.place_id)).toString();
+        Task<PlaceBufferResponse> placeResult = mGeoDataClient.getPlaceById(locationPlaceID);
+        placeResult.addOnCompleteListener(mUpdatePlaceDetailsCallback);
+        loadData();
+
+    }
+
+    /*
     private void readUserDataFromFirebase() {
         String key = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseUtils.getRefToSpecificUser(key).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -118,6 +134,7 @@ public class ProfileViewActivity extends AppCompatActivity {
             }
         });
     }
+    */
 
     private void loadData() {
         txtViewName.setText(userDetails.getFirstname() + " " + userDetails.getLastname());

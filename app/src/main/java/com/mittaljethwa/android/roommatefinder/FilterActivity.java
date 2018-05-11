@@ -22,24 +22,19 @@ import com.google.gson.Gson;
 public class FilterActivity extends AppCompatActivity {
 
     private static final String TAG = "FilterActivity" ;
-//    private RadioGroup radioFoodPref;
     private RadioGroup radioSmokePref;
     private RadioGroup radioAlcoholPref;
     private RadioGroup radioPetFriendlyPref;
-//    private RadioGroup radioSharedCookingPref;
     private RadioGroup radioGender;
     private RadioGroup radioProfileCategory;
     private SeekBar seekCleanlinessScale;
     private SeekBar seekVisitorScale;
     private SeekBar seekLoudnessScale;
-    private EditText inputBedTime;
-    private EditText inputWakeupTime;
     private Button buttonSave;
     private Button buttonReset;
     private ProgressBar progressBar;
     
     private String userKey;
-//    private UserProfile userProfile;
     private RoommateDetails userProfile;
     
     private SharedPreferences sharedPreferences;
@@ -94,11 +89,6 @@ public class FilterActivity extends AppCompatActivity {
             seekCleanlinessScale.setProgress(Integer.valueOf(customFilter.getCleanlinessScale()));
             seekVisitorScale.setProgress(Integer.valueOf(customFilter.getVisitorScale()));
             seekLoudnessScale.setProgress(Integer.valueOf(customFilter.getLoudnessScale()));
-            inputBedTime.setText(customFilter.getBedTime());
-            inputWakeupTime.setText(customFilter.getWakeupTime());
-
-            inputBedTime.clearFocus();
-            inputWakeupTime.clearFocus();
 
             progressBar.setVisibility(View.GONE);
         }
@@ -107,19 +97,6 @@ public class FilterActivity extends AppCompatActivity {
     private void saveCustomFilters() {
         Filters customFilters = new Filters();
 
-        if (inputBedTime.length() == 0) {
-            customFilters.setBedTime("");
-        }
-        else {
-            customFilters.setBedTime(inputBedTime.getText().toString());
-        }
-
-        if (inputWakeupTime.length() == 0) {
-            customFilters.setWakeupTime("");
-        }
-        else {
-            customFilters.setWakeupTime(inputWakeupTime.getText().toString());
-        }
 
         String gender = getGenderSelected(radioGender.getCheckedRadioButtonId());
         String profileCategory = getProfileCategorySelected(radioProfileCategory.getCheckedRadioButtonId());
@@ -181,11 +158,6 @@ public class FilterActivity extends AppCompatActivity {
         seekCleanlinessScale.setProgress(0);
         seekVisitorScale.setProgress(0);
         seekLoudnessScale.setProgress(0);
-        inputBedTime.setText("");
-        inputWakeupTime.setText("");
-
-        inputBedTime.clearFocus();
-        inputWakeupTime.clearFocus();
     }
 
     private void initializeUIElements() {
@@ -197,8 +169,6 @@ public class FilterActivity extends AppCompatActivity {
         seekCleanlinessScale = this.findViewById(R.id.sbProfilePreferencesCleanliness);
         seekVisitorScale = this.findViewById(R.id.sbProfilePreferencesLoudness);
         seekLoudnessScale = this.findViewById(R.id.sbProfilePreferencesVisitor);
-        inputBedTime = this.findViewById(R.id.bedTime);
-        inputWakeupTime = this.findViewById(R.id.wakeupTime);
         buttonSave = this.findViewById(R.id.saveFilterButton);
         buttonReset = this.findViewById(R.id.resetButton);
         progressBar = this.findViewById(R.id.progressBar);

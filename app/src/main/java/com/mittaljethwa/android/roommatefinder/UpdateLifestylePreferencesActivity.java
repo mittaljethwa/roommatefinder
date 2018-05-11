@@ -496,8 +496,11 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
         buttonSave = this.findViewById(R.id.saveLifestyleButton);
         progressBar = this.findViewById(R.id.progressBar);
 
-        inputBedTime.setEnabled(false);
-        inputWakeupTime.setEnabled(false);
+
+        inputBedTime.setFocusable(false);
+        inputBedTime.setClickable(true);
+        inputWakeupTime.setFocusable(false);
+        inputWakeupTime.setClickable(true);
     }
 
     @Override

@@ -27,22 +27,6 @@
             android:background="@color/primaryDarkColor"
             android:text="@string/applyFilter"
             android:textColor="@android:color/white"
-            android:layout_weight="1"
-            android:textStyle="bold" />
-        <View
-            android:layout_width="10dp"
-            android:layout_height="1dp"/>
-
-        <Button
-            android:id="@+id/resetButton"
-            style="?android:textAppearanceSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_weight="1"
-            android:background="?attr/colorButtonNormal"
-            android:text="@string/reset"
-            android:textColor="@color/primaryDarkColor"
             android:textStyle="bold" />
     </LinearLayout>
     <View

@@ -9,10 +9,6 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/label_profile" />
 
-        <item
-            android:id="@+id/nav_lifestyle"
-            android:icon="@drawable/ic_menu_lifestyle"
-            android:title="@string/label_lifestyle_preferences" />
 
         <item
             android:id="@+id/nav_housing"
@@ -20,21 +16,14 @@
             android:title="@string/label_housing_preferences" />
 
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_lifestyle"
+            android:icon="@drawable/ic_menu_lifestyle"
+            android:title="@string/label_lifestyle_preferences" />
+
     </group>
 
     <item android:title="@string/label_account">
         <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
             <item
                 android:id="@+id/nav_logoff"
                 android:icon="@drawable/ic_menu_log_off"

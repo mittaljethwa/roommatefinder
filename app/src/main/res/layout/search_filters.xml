@@ -341,33 +341,7 @@
 
         </LinearLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/bedTime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="5dp"
-                android:drawableStart="@android:drawable/ic_lock_idle_alarm"
-                android:hint="@string/bed_time"
-                android:inputType="time" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/wakeupTime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="5dp"
-                android:drawableStart="@drawable/ic_wb_sunny_black_24dp"
-                android:hint="@string/wakeup_time"
-                android:inputType="time" />
-        </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
 

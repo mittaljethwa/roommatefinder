@@ -89,7 +89,6 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
         mAdapter = new PlaceAutocompleteAdapter(this, mGeoDataClient, BOUNDS_SAN_DIEGO, null);
         mAutocompleteView.setAdapter(mAdapter);
         mAutocompleteView.clearFocus();
-        mAutocompleteView.dismissDropDown();
 
         //get current user
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -97,6 +96,7 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
 
         readUserDataFromFirebase();
+
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -62,7 +62,7 @@ public class RoommatesRecyclerAdapter extends RecyclerView.Adapter<RoommatesRecy
                 txtProfileCategory.setText(roommateDetails.getProfileCategory());
                 txtBio.setText(roommateDetails.getBio());
                 if (roommateDetails.getHousingPreferences() != null)
-                    txtMaxBudget.setText(roommateDetails.getHousingPreferences().get("maxBudget").toString());
+                    txtMaxBudget.setText("Budget: $" + roommateDetails.getHousingPreferences().get("maxBudget").toString());
                 else
                     txtMaxBudget.setText(Resources.getSystem().getString(R.string.noMaxBudget));
 

@@ -296,6 +296,13 @@ public class HomeActivity extends AppCompatActivity
                 @Override
                 public void onItemActionButtonClicked(RoommateDetails roommateDetails) {
                     Log.d("Item Clicked",roommateDetails.getFirstname());
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("RoommateProfile", new Gson().toJson(roommateDetails));
+                    editor.apply();
+//                    String roommateProfile = sharedPreferences.getString("RoommateProfile", "");
+//                    roommateDetails = new Gson().fromJson(roommateProfile, RoommateDetails.class);
+                    Log.d(TAG,"Roommate Profile: " + roommateDetails.toString());
+
                     startActivityForResult(new Intent(HomeActivity.this,ProfileViewActivity.class),FROM_HOME);
                 }
             });
@@ -332,11 +339,6 @@ public class HomeActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         if (id == R.id.action_signOut) {
             //Sign out current user and Redirect to Login Page
