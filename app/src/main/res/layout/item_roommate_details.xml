@@ -20,8 +20,8 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/age"
-            android:layout_toStartOf="@+id/age"
+            android:layout_toLeftOf="@+id/resultGender"
+            android:layout_toStartOf="@+id/resultGender"
             android:layout_alignParentTop="true"
             android:textColor="@color/title"
             android:textSize="16sp"
@@ -42,12 +42,21 @@
             android:layout_below="@id/profileCategory" />
 
         <TextView
-            android:id="@+id/age"
+            android:id="@+id/resultGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:textColor="@color/time" />
 
+        <TextView
+            android:id="@+id/titleMaxBudget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="@string/title_maximum_budget"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@+id/maxBudget"/>
         <TextView
             android:id="@+id/maxBudget"
             android:layout_width="match_parent"
@@ -61,7 +70,7 @@
             android:layout_below="@id/bio"
             android:text="@string/profile"
             android:layout_marginTop="10dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/primaryDarkColor"
             android:textColor="@android:color/white"
             android:layout_width="wrap_content"
             android:paddingStart="20dp"

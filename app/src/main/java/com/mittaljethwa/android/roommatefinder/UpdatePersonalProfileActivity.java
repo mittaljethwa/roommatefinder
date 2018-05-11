@@ -61,6 +61,9 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         initializeUIElements();
+
+        progressBar.setVisibility(View.VISIBLE);
+
         readData();
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +94,7 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.getValue() == null) {
+                    progressBar.setVisibility(View.GONE);
                     Log.d(TAG, "User data snapshot is null, No data to load");
                 }
                 else {
@@ -124,6 +128,9 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
         radioProfileCategory.check(getProfileCategoryID(profileCategory));
         inputBirthday.setText(birthdate);
         toggleActivelySearching.setChecked(isActivelySearching);
+
+        progressBar.setVisibility(View.GONE);
+
 
     }
 
@@ -243,7 +250,7 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
 
     private void updateUI(String userKey) {
         if(userKey != null) {
-
+            progressBar.setVisibility(View.GONE);
             FirebaseUtils.getRefToSpecificUser(userKey).child("housingPreferences").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -327,5 +334,11 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
             default:
                 return -1;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        progressBar.setVisibility(View.GONE);
     }
 }

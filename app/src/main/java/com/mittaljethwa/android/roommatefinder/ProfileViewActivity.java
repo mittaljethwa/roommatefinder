@@ -3,6 +3,8 @@ package com.mittaljethwa.android.roommatefinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.gms.location.places.GeoDataClient;
@@ -37,7 +39,7 @@ public class ProfileViewActivity extends AppCompatActivity {
     private TextView txtViewCleanlinessScale;
     private TextView txtViewLoudnessScale;
     private TextView txtViewVisitorScale;
-
+    private ProgressBar progressBar;
     private RoommateDetails userDetails;
 
     FirebaseAuth auth;
@@ -63,6 +65,7 @@ public class ProfileViewActivity extends AppCompatActivity {
         //get current user
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+        progressBar.setVisibility(View.VISIBLE);
         readUserDataFromFirebase();
     }
 
@@ -132,6 +135,8 @@ public class ProfileViewActivity extends AppCompatActivity {
         txtViewCleanlinessScale.setText(userDetails.getLifestylePreferences().get(getString(R.string.cleanliness_scale)).toString());
         txtViewLoudnessScale.setText(userDetails.getLifestylePreferences().get(getString(R.string.loudness_scale)).toString());
         txtViewVisitorScale.setText(userDetails.getLifestylePreferences().get(getString(R.string.visitor_scale)).toString());
+
+        progressBar.setVisibility(View.GONE);
     }
 
     private void initializeUIElements() {
@@ -150,5 +155,6 @@ public class ProfileViewActivity extends AppCompatActivity {
         txtViewCleanlinessScale = this.findViewById(R.id.tvCleanlinessScale);
         txtViewLoudnessScale = this.findViewById(R.id.tvLoudnessScale);
         txtViewVisitorScale = this.findViewById(R.id.tvVisitorScale);
+        progressBar = this.findViewById(R.id.progressBar);
     }
 }

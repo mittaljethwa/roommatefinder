@@ -90,4 +90,6 @@
     <string name="visitor_scale">visitorScale</string>
     <string name="bed_Time">bedTime</string>
     <string name="wakeup_Time">wakeupTime</string>
+    <string name="title_maximum_budget">Maximum Budget : $</string>
+    <string name="noMaxBudget">N/A</string>
 </resources>

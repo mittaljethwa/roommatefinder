@@ -1,5 +1,6 @@
 package com.mittaljethwa.android.roommatefinder;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -42,6 +43,7 @@ public class HomeActivity extends AppCompatActivity
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authListener;
     private ProgressBar progressBar;
+    private ProgressDialog progress;
     private TextView textAccountName;
     private TextView textAccountEmail;
     private RecyclerView recyclerRoommates;
@@ -59,6 +61,11 @@ public class HomeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        progress = new ProgressDialog(this);
+        progress.setMessage("Loading...");
+        progress.setIndeterminate(true);
+        progress.setCancelable(false);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(getString(R.string.title_activity_home));
         setSupportActionBar(toolbar);
@@ -72,13 +79,8 @@ public class HomeActivity extends AppCompatActivity
         recyclerRoommates = this.findViewById(R.id.recyclerRoommates);
         noRoommatesTextView = this.findViewById(R.id.textNoRoommates);
 
-
-
-        if (progressBar != null) {
-            progressBar.setVisibility(View.GONE);
-        }
-
-
+        progressBar.setVisibility(View.VISIBLE);
+        progress.show();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,8 +107,6 @@ public class HomeActivity extends AppCompatActivity
         //Get User Profile from Firebase and load initial search result
         final String userKey = FirebaseAuth.getInstance().getCurrentUser().getUid();
         getUserProfileFromFirebase(userKey);
-
-
 
         //get firebase auth instance
         auth = FirebaseAuth.getInstance();
@@ -304,6 +304,9 @@ public class HomeActivity extends AppCompatActivity
             recyclerRoommates.setItemAnimator(new DefaultItemAnimator());
             recyclerRoommates.setAdapter(adapter);
         }
+        progressBar.setVisibility(View.GONE);
+        if (progress.isShowing())
+            progress.dismiss();
     }
 
     @Override
@@ -405,6 +408,8 @@ public class HomeActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         progressBar.setVisibility(View.GONE);
+        if (progress.isShowing())
+            progress.dismiss();
     }
 
     @Override

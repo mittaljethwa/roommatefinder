@@ -15,32 +15,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d91273a-7cd0-4cf9-ba8f-a32949e322dd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_check_circle_black_12dp.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-10-13-43-02-009.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-10-13-43-02-009.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-10-18-17-59-710.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-10-18-17-59-710.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-10-18-18-45-675.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-10-18-18-45-675.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-10-18-23-28-742.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-10-18-23-28-742.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-10-18-24-53-158.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-10-18-24-53-158.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-10-18-27-14-488.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2018-05-10-18-27-14-488.rawproto" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/FilterActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/FilterActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/Filters.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/Filters.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/HomeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/HomeActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/LoginActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/ProfileViewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/ProfileViewActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/RoommateDetails.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/RoommateDetails.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/RoommatesRecyclerAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/RoommatesRecyclerAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdateHousingPreferencesActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdateHousingPreferencesActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdateLifestylePreferencesActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdateLifestylePreferencesActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdatePersonalProfileActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdatePersonalProfileActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile_view.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile_view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_roommate_details.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_roommate_details.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -123,52 +127,11 @@
       <file leaf-file-name="HomeActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/HomeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="298" column="64" lean-forward="false" selection-start-line="298" selection-start-column="64" selection-end-line="298" selection-end-column="64" />
+            <state relative-caret-position="165">
+              <caret line="293" column="29" lean-forward="false" selection-start-line="293" selection-start-column="12" selection-end-line="293" selection-end-column="29" />
               <folding>
-                <element signature="e#11278#11662#0" expanded="true" />
-                <element signature="e#11661#11662#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LifestylePreference.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/LifestylePreference.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="12" column="34" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FilterActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/FilterActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="57" column="44" lean-forward="false" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProfileViewActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/ProfileViewActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="104" column="107" lean-forward="false" selection-start-line="104" selection-start-column="107" selection-end-line="104" selection-end-column="107" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4991#5020#0" expanded="true" />
-                <element signature="e#5216#5249#0" expanded="true" />
-                <element signature="e#5337#5365#0" expanded="true" />
-                <element signature="e#5456#5487#0" expanded="true" />
-                <element signature="e#5575#5605#0" expanded="true" />
-                <element signature="e#5693#5723#0" expanded="true" />
-                <element signature="e#5820#5857#0" expanded="true" />
-                <element signature="e#5951#5985#0" expanded="true" />
-                <element signature="e#6078#6111#0" expanded="true" />
+                <element signature="e#11492#11876#0" expanded="true" />
+                <element signature="e#11875#11876#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -177,8 +140,114 @@
       <file leaf-file-name="RoommatesRecyclerAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/RoommatesRecyclerAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="63" column="99" lean-forward="false" selection-start-line="63" selection-start-column="90" selection-end-line="63" selection-end-column="99" />
+            <state relative-caret-position="353">
+              <caret line="69" column="17" lean-forward="false" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
+              <folding>
+                <element signature="e#2667#2720#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="218">
+              <caret line="93" column="43" lean-forward="false" selection-start-line="93" selection-start-column="43" selection-end-line="93" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="item_roommate_details.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_roommate_details.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-20">
+              <caret line="44" column="41" lean-forward="false" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="41" />
+              <folding>
+                <element signature="e#2362#2392#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app_bar_home.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_home.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="644">
+              <caret line="31" column="51" lean-forward="false" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="content_home.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_home.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="22" selection-end-column="52" />
+              <folding>
+                <marker date="1525909189859" expanded="false" signature="1459:1499" ph="&quot;android.support.design.widget.AppBarLayout$ScrollingVie...&quot;" />
+              </folding>
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="content_search_result.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_search_result.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="67" column="40" lean-forward="false" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="housing_preferences.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/housing_preferences.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="9" selection-end-column="45" />
+              <folding>
+                <marker date="1525877663141" expanded="false" signature="1150:1175" ph="&quot;Pick a location...&quot;" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_home.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpdateHousingPreferencesActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdateHousingPreferencesActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2768">
+              <caret line="164" column="16" lean-forward="false" selection-start-line="164" selection-start-column="16" selection-end-line="164" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -198,13 +267,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.child(&quot;housingPreferen&quot;)</find>
-      <find>.child(&quot;housingPreferenc&quot;)</find>
-      <find>.child(&quot;housingPreferences&quot;)</find>
-      <find>.child(&quot;housingPreference&quot;)</find>
-      <find>.child(&quot;l&quot;)</find>
-      <find>.child(&quot;li&quot;)</find>
-      <find>.child(&quot;lif&quot;)</find>
       <find>.child(&quot;life&quot;)</find>
       <find>.child(&quot;lifes&quot;)</find>
       <find>.child(&quot;lifest&quot;)</find>
@@ -212,7 +274,6 @@
       <find>.child(&quot;lifestyl&quot;)</find>
       <find>housePreference</find>
       <find>roommateDet</find>
-      <find>sharedPreferences</find>
       <find>clen</find>
       <find>profile</find>
       <find>smoke</find>
@@ -227,11 +288,20 @@
       <find>userDetaingPreferences().get</find>
       <find>userDetangPreferences().get</find>
       <find>ngPreferences().get</find>
+      <find>sharedPreferences</find>
+      <find>progressBar</find>
       <find>item</find>
+      <find>progress</find>
+      <find>gem</find>
+      <find>age</find>
+      <find>no</find>
+      <find>recyclerRoommates</find>
+      <find>gender</find>
     </findStrings>
     <replaceStrings>
       <replace>padding=&quot;5dp&quot;</replace>
       <replace>layout_margin=&quot;5dp&quot;</replace>
+      <replace>resultGender</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Drive D\MS in CS\Semester 2\CS 646\Assignments\RoommateFinder\app\src\main\java\com\mittaljethwa\android\roommatefinder</dir>
@@ -1977,7 +2047,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/RegisterActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/nav_header_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/FirebaseUtils.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/MainActivity.java" />
@@ -1993,41 +2062,42 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/HousePreference.java" />
         <option value="$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.2.0.aar/62c64078ce80ec0a9429a6cce694b411/jars/classes.jar!/com/google/android/gms/tasks/Task.class" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimen.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-v21/item_roommate_details.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_roommate_details.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/app_bar_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_filter.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/LifePreference.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/LifestylePreference.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_search_result.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/RoommatesRecyclerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/search_filters.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/PlaceAutocompleteAdapter.java" />
         <option value="$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/oneplus-one_e1003-b676d689/data/data/com.mittaljethwa.android.roommatefinder/shared_prefs/PZXEvcQpBaNv9immq1jIjOgvN252.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdateLifestylePreferencesActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/tags.xml" />
         <option value="$PROJECT_DIR$/app/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_cancel_black_12dp.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_cancel_black_12dp.xml" />
         <option value="$PROJECT_DIR$/app/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_check_black_12dp.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_check_black_12dp.xml" />
         <option value="$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/oneplus-one_e1003-b676d689/data/data/com.mittaljethwa.android.roommatefinder/shared_prefs/OHLYEPxU3PSYulPyEkZUaX70wbN2.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/Filters.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/FilterActivity.java" />
         <option value="$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/oneplus-one_e1003-b676d689/data/data/com.mittaljethwa.android.roommatefinder/shared_prefs/MainActivity.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdateHousingPreferencesActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdatePersonalProfileActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/RoommateDetails.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_check_circle_black_12dp.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/HomeActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/RegisterActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdatePersonalProfileActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdateLifestylePreferencesActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdateHousingPreferencesActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/FilterActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_profile_view.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/ProfileViewActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_home.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/HomeActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_roommate_details.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/RoommatesRecyclerAdapter.java" />
       </list>
     </option>
   </component>
@@ -2157,24 +2227,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RoommateFinder" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drawable" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2378,7 +2430,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526002043152" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526007584049" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2426,7 +2478,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526002043152" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526007584049" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2609,7 +2661,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526002043154" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526007584050" />
       </method>
     </configuration>
     <list size="1">
@@ -2664,12 +2716,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29814386" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29814386" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2749,25 +2800,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="110" column="43" lean-forward="false" selection-start-line="101" selection-start-column="12" selection-end-line="110" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimen.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -2781,30 +2813,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/housing_preferences.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="9" selection-end-column="45" />
-          <folding>
-            <marker date="1525877663141" expanded="false" signature="1150:1175" ph="&quot;Pick a location...&quot;" />
-          </folding>
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -2841,17 +2849,6 @@
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_roommate_details.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1025">
-          <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/search_lifestyle.xml">
@@ -2936,57 +2933,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_home.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="31" column="51" lean-forward="false" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_home.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="24" selection-end-column="50" />
-          <folding>
-            <marker date="1525909189859" expanded="false" signature="1459:1499" ph="&quot;android.support.design.widget.AppBarLayout$ScrollingVie...&quot;" />
-          </folding>
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_search_result.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="1675">
-          <caret line="67" column="40" lean-forward="false" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="40" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/oneplus-one_e1003-b676d689/data/data/com.mittaljethwa.android.roommatefinder/shared_prefs/OHLYEPxU3PSYulPyEkZUaX70wbN2.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -3059,38 +3005,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdateLifestylePreferencesActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="289" column="44" lean-forward="false" selection-start-line="289" selection-start-column="25" selection-end-line="289" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/oneplus-one_e1003-b676d689/data/data/com.mittaljethwa.android.roommatefinder/shared_prefs/MainActivity.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdateHousingPreferencesActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="329" column="25" lean-forward="false" selection-start-line="329" selection-start-column="25" selection-end-line="329" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdatePersonalProfileActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="208" column="30" lean-forward="false" selection-start-line="208" selection-start-column="30" selection-end-line="208" selection-end-column="30" />
-          <folding>
-            <element signature="e#8579#9461#0" expanded="false" />
-            <element signature="e#9460#9461#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3107,25 +3026,6 @@
         <state relative-caret-position="300">
           <caret line="12" column="34" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="34" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/FilterActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="57" column="44" lean-forward="false" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/HomeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="298" column="64" lean-forward="false" selection-start-line="298" selection-start-column="64" selection-end-line="298" selection-end-column="64" />
-          <folding>
-            <element signature="e#11278#11662#0" expanded="true" />
-            <element signature="e#11661#11662#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3180,13 +3080,112 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/RegisterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="129" column="45" lean-forward="false" selection-start-line="129" selection-start-column="45" selection-end-line="129" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdatePersonalProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="342" column="5" lean-forward="true" selection-start-line="338" selection-start-column="4" selection-end-line="342" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdateLifestylePreferencesActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="506" column="5" lean-forward="false" selection-start-line="506" selection-start-column="5" selection-end-line="506" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/FilterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="38" column="36" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="46" column="67" lean-forward="false" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profile_view.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="340" column="91" lean-forward="false" selection-start-line="340" selection-start-column="91" selection-end-line="340" selection-end-column="91" />
+        <state relative-caret-position="119">
+          <caret line="432" column="16" lean-forward="false" selection-start-line="432" selection-start-column="16" selection-end-line="432" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/ProfileViewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1950">
+          <caret line="138" column="25" lean-forward="false" selection-start-line="138" selection-start-column="25" selection-end-line="138" selection-end-column="25" />
           <folding>
-            <element signature="e#17032#17053#0" expanded="true" />
-            <element signature="e#19351#19376#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#4332#4360#0" expanded="true" />
+            <element signature="e#5137#5166#0" expanded="true" />
+            <element signature="e#5362#5395#0" expanded="true" />
+            <element signature="e#5483#5511#0" expanded="true" />
+            <element signature="e#5602#5633#0" expanded="true" />
+            <element signature="e#5721#5751#0" expanded="true" />
+            <element signature="e#5839#5869#0" expanded="true" />
+            <element signature="e#5966#6003#0" expanded="true" />
+            <element signature="e#6097#6131#0" expanded="true" />
+            <element signature="e#6224#6257#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/UpdateHousingPreferencesActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2768">
+          <caret line="164" column="16" lean-forward="false" selection-start-line="164" selection-start-column="16" selection-end-line="164" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/housing_preferences.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="9" selection-end-column="45" />
+          <folding>
+            <marker date="1525877663141" expanded="false" signature="1150:1175" ph="&quot;Pick a location...&quot;" />
           </folding>
         </state>
       </provider>
@@ -3194,39 +3193,92 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/RoommatesRecyclerAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_search_result.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="63" column="99" lean-forward="false" selection-start-line="63" selection-start-column="90" selection-end-line="63" selection-end-column="99" />
+        <state relative-caret-position="400">
+          <caret line="67" column="40" lean-forward="false" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="40" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_home.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="31" column="51" lean-forward="false" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_home.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="22" selection-end-column="52" />
+          <folding>
+            <marker date="1525909189859" expanded="false" signature="1459:1499" ph="&quot;android.support.design.widget.AppBarLayout$ScrollingVie...&quot;" />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="82" column="18" lean-forward="false" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
+        <state relative-caret-position="218">
+          <caret line="93" column="43" lean-forward="false" selection-start-line="93" selection-start-column="43" selection-end-line="93" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/ProfileViewActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/HomeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="104" column="107" lean-forward="false" selection-start-line="104" selection-start-column="107" selection-end-line="104" selection-end-column="107" />
+        <state relative-caret-position="165">
+          <caret line="293" column="29" lean-forward="false" selection-start-line="293" selection-start-column="12" selection-end-line="293" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4991#5020#0" expanded="true" />
-            <element signature="e#5216#5249#0" expanded="true" />
-            <element signature="e#5337#5365#0" expanded="true" />
-            <element signature="e#5456#5487#0" expanded="true" />
-            <element signature="e#5575#5605#0" expanded="true" />
-            <element signature="e#5693#5723#0" expanded="true" />
-            <element signature="e#5820#5857#0" expanded="true" />
-            <element signature="e#5951#5985#0" expanded="true" />
-            <element signature="e#6078#6111#0" expanded="true" />
+            <element signature="e#11492#11876#0" expanded="true" />
+            <element signature="e#11875#11876#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mittaljethwa/android/roommatefinder/RoommatesRecyclerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="69" column="17" lean-forward="false" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
+          <folding>
+            <element signature="e#2667#2720#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_roommate_details.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-20">
+          <caret line="44" column="41" lean-forward="false" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="41" />
+          <folding>
+            <element signature="e#2362#2392#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
   </component>

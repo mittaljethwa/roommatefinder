@@ -54,7 +54,8 @@ public class FilterActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(MainActivity.class.getSimpleName(),MODE_PRIVATE);
 
         initializeUIElements();
-        
+        progressBar.setVisibility(View.VISIBLE);
+
         if(sharedPreferences.getString("Filters","")=="")
             //No filters show default filters
             setDefaultFilters();
@@ -98,6 +99,8 @@ public class FilterActivity extends AppCompatActivity {
 
             inputBedTime.clearFocus();
             inputWakeupTime.clearFocus();
+
+            progressBar.setVisibility(View.GONE);
         }
     }
 
@@ -210,6 +213,7 @@ public class FilterActivity extends AppCompatActivity {
         FirebaseUtils.getRefToSpecificUser(userKey).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
                 if(dataSnapshot.getValue() == null) {
                     Log.d(TAG, "User profile data snapshot is null, No data to load");
                 }
@@ -264,6 +268,8 @@ public class FilterActivity extends AppCompatActivity {
             seekCleanlinessScale.setProgress(5);
             seekVisitorScale.setProgress(5);
             seekLoudnessScale.setProgress(5);
+
+            progressBar.setVisibility(View.GONE);
         }
         else {
             Log.d(TAG,"Setting custom filters");

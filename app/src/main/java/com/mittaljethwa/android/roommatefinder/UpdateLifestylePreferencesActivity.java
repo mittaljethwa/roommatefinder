@@ -67,6 +67,8 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
         //get current user
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+        progressBar.setVisibility(View.VISIBLE);
+
         readUserDataFromFirebase();
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
@@ -235,6 +237,8 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
                 return;
             }
 
+            progressBar.setVisibility(View.VISIBLE);
+
             lifestylePreference.setFoodPref(foodPref);
             lifestylePreference.setSmokePref(smokePref);
             lifestylePreference.setAlcoholPref(alcoholPref);
@@ -245,7 +249,7 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
             lifestylePreference.setVisitorScale(loudnessScale);
             lifestylePreference.setBedTime(bedTime);
             lifestylePreference.setWakeupTime(wakeupTime);
-            progressBar.setVisibility(View.VISIBLE);
+
 
             saveUserProfileOnServer(lifestylePreference);
 
@@ -265,6 +269,8 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
+                progressBar.setVisibility(View.GONE);
+
                 //If databaseError -> NULL, transaction was successful, redirect to home activity
                 if (databaseError==null) {
 
@@ -275,8 +281,6 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
 
                 }
                 else {
-
-                    progressBar.setVisibility(View.GONE);
 
                     Toast.makeText(UpdateLifestylePreferencesActivity.this, getString(R.string.error_saving_data) + databaseError.getMessage(),
                             Toast.LENGTH_SHORT).show();
@@ -473,6 +477,8 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
         seekLoudnessScale.setProgress(loudnessScale);
         inputBedTime.setText(bedTime);
         inputWakeupTime.setText(wakeupTime);
+
+        progressBar.setVisibility(View.GONE);
     }
 
     private void initializeUIElements() {
@@ -489,5 +495,14 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
 
         buttonSave = this.findViewById(R.id.saveLifestyleButton);
         progressBar = this.findViewById(R.id.progressBar);
+
+        inputBedTime.setEnabled(false);
+        inputWakeupTime.setEnabled(false);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        progressBar.setVisibility(View.GONE);
     }
 }

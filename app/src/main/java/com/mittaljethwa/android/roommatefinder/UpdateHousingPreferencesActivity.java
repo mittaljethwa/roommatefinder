@@ -89,9 +89,12 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
         mAdapter = new PlaceAutocompleteAdapter(this, mGeoDataClient, BOUNDS_SAN_DIEGO, null);
         mAutocompleteView.setAdapter(mAdapter);
         mAutocompleteView.clearFocus();
+        mAutocompleteView.dismissDropDown();
 
         //get current user
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        progressBar.setVisibility(View.VISIBLE);
 
         readUserDataFromFirebase();
 
@@ -260,6 +263,8 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
+                progressBar.setVisibility(View.GONE);
+
                 //If databaseError -> NULL, transaction was successful, redirect to home activity
                 if (databaseError==null) {
 
@@ -270,8 +275,6 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
 
                 }
                 else {
-
-                    progressBar.setVisibility(View.GONE);
 
                     Toast.makeText(UpdateHousingPreferencesActivity.this, getString(R.string.error_saving_data) + databaseError.getMessage(),
                             Toast.LENGTH_SHORT).show();
@@ -316,8 +319,12 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
     private void readUserDataFromFirebase() {
         String key = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseUtils.getRefToSpecificUser(key).child("housingPreferences").addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
+                progressBar.setVisibility(View.GONE);
+
                 if(dataSnapshot.getValue() == null) {
                     Log.d(TAG, "Housing data snapshot is null, No data to load");
                 }
@@ -351,6 +358,8 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
         inputMinBudget.setText(String.valueOf(minBudget));
         inputMaxBudget.setText(String.valueOf(maxBudget));
         radioRoomType.check(getRoomTypeID(roomType));
+
+        progressBar.setVisibility(View.GONE);
     }
 
     private void initializeUIElements() {
@@ -366,4 +375,9 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
         progressBar = this.findViewById(R.id.progressBar);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        progressBar.setVisibility(View.GONE);
+    }
 }

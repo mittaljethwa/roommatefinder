@@ -1,5 +1,6 @@
 package com.mittaljethwa.android.roommatefinder;
 
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,7 +44,7 @@ public class RoommatesRecyclerAdapter extends RecyclerView.Adapter<RoommatesRecy
             TextView txtTitle;
             TextView txtProfileCategory;
             TextView txtBio;
-            TextView txtAge;
+            TextView txtGender;
             TextView txtMaxBudget;
             Button btnViewProfile;
             public ViewHolder(View itemView) {
@@ -51,7 +52,7 @@ public class RoommatesRecyclerAdapter extends RecyclerView.Adapter<RoommatesRecy
                 txtTitle = itemView.findViewById(R.id.title);
                 txtProfileCategory = itemView.findViewById(R.id.profileCategory);
                 txtBio= itemView.findViewById(R.id.bio);
-                txtAge = itemView.findViewById(R.id.age);
+//                txtGender = itemView.findViewById(R.id.resultGender);
                 btnViewProfile = itemView.findViewById(R.id.viewProfileButton);
                 txtMaxBudget= itemView.findViewById(R.id.maxBudget);
             }
@@ -61,22 +62,11 @@ public class RoommatesRecyclerAdapter extends RecyclerView.Adapter<RoommatesRecy
                 txtProfileCategory.setText(roommateDetails.getProfileCategory());
                 txtBio.setText(roommateDetails.getBio());
                 if (roommateDetails.getHousingPreferences() != null)
-                    txtMaxBudget.setText("$"+roommateDetails.getHousingPreferences().get("maxBudget").toString());
+                    txtMaxBudget.setText(roommateDetails.getHousingPreferences().get("maxBudget").toString());
                 else
-                    txtMaxBudget.setText("$ NULL");
-//                if (classDetails.getStartTime() != null && !classDetails.getStartTime().trim().isEmpty()) {
-//                    String timeString = classDetails.getStartTime().substring(0, 2);
-//                    timeString += ":";
-//                    timeString += classDetails.getStartTime().substring(2, 4);
-//                    if (classDetails.getEndTime() != null && !classDetails.getEndTime().trim().isEmpty()) {
-//                        timeString += " - ";
-//                        timeString += classDetails.getEndTime().substring(0, 2);
-//                        timeString += ":";
-//                        timeString += classDetails.getEndTime().substring(2, 4);
-//                    }
-//                    txtTime.setText(timeString);
-//                }
-                txtAge.setText(String.valueOf(25));
+                    txtMaxBudget.setText(Resources.getSystem().getString(R.string.noMaxBudget));
+
+//                txtGender.setText(roommateDetails.getGender());
                 btnViewProfile.setTag(roommateDetails);
 
                 btnViewProfile.setOnClickListener(new View.OnClickListener() {
