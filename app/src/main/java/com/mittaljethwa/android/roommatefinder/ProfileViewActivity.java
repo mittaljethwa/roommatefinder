@@ -1,6 +1,10 @@
 package com.mittaljethwa.android.roommatefinder;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,6 +42,11 @@ public class ProfileViewActivity extends AppCompatActivity {
     private TextView txtViewWakeUpTime;
     private TextView txtViewMinBudget;
     private TextView txtViewMaxBudget;
+    private TextView txtViewFood;
+    private TextView txtViewSmoke;
+    private TextView txtViewAlcohol;
+    private TextView txtViewPetFriendly;
+    private TextView txtViewSharedCook;
     private TextView txtViewCleanlinessScale;
     private TextView txtViewLoudnessScale;
     private TextView txtViewVisitorScale;
@@ -144,14 +153,62 @@ public class ProfileViewActivity extends AppCompatActivity {
         txtViewRoomType.setText(userDetails.getHousingPreferences().get(getString(R.string.room_type)).toString());
         txtViewBio.setText(userDetails.getBio());
         txtViewLocation.setText(preferredLocationPlaceName);
-        txtViewRadius.setText(userDetails.getHousingPreferences().get(getString(R.string.search_radius)).toString());
+        txtViewRadius.setText(userDetails.getHousingPreferences().get(getString(R.string.search_radius)).toString() + " Miles");
         txtViewBedTime.setText(userDetails.getLifestylePreferences().get(getString(R.string.bed_Time)).toString());
         txtViewWakeUpTime.setText(userDetails.getLifestylePreferences().get(getString(R.string.wakeup_Time)).toString());
-        txtViewMinBudget.setText(userDetails.getHousingPreferences().get(getString(R.string.min_Budget)).toString());
-        txtViewMaxBudget.setText(userDetails.getHousingPreferences().get(getString(R.string.max_Budget)).toString());
+        txtViewMinBudget.setText("$" + userDetails.getHousingPreferences().get(getString(R.string.min_Budget)).toString());
+        txtViewMaxBudget.setText("$" + userDetails.getHousingPreferences().get(getString(R.string.max_Budget)).toString());
         txtViewCleanlinessScale.setText(userDetails.getLifestylePreferences().get(getString(R.string.cleanliness_scale)).toString());
         txtViewLoudnessScale.setText(userDetails.getLifestylePreferences().get(getString(R.string.loudness_scale)).toString());
         txtViewVisitorScale.setText(userDetails.getLifestylePreferences().get(getString(R.string.visitor_scale)).toString());
+        String food = userDetails.getLifestylePreferences().get(getString(R.string.food)).toString();
+        String smoke = userDetails.getLifestylePreferences().get(getString(R.string.smoke)).toString();
+        String alcohol = userDetails.getLifestylePreferences().get(getString(R.string.alcohol)).toString();
+        String petFriendly = userDetails.getLifestylePreferences().get(getString(R.string.pet_Friendly)).toString();
+        String sharedCook = userDetails.getLifestylePreferences().get(getString(R.string.shared_cook)).toString();
+
+        int yesIcon = R.drawable.ic_check_circle_black_12dp;
+        int noIcon = R.drawable.ic_cancel_black_12dp;
+
+        if(food.equals(getString(R.string.str_veg))){
+            txtViewFood.setCompoundDrawablesRelativeWithIntrinsicBounds(yesIcon,0,0,0);
+        }else{
+            txtViewFood.setCompoundDrawablesRelativeWithIntrinsicBounds(noIcon,0,0,0);
+        }
+
+        if(smoke.equals(getString(R.string.str_no))){
+            txtViewSmoke.setCompoundDrawablesRelativeWithIntrinsicBounds(noIcon,0,0,0);
+        }else{
+            txtViewSmoke.setCompoundDrawablesRelativeWithIntrinsicBounds(yesIcon,0,0,0);
+        }
+
+        if(alcohol.equals(getString(R.string.str_no))){
+            txtViewAlcohol.setCompoundDrawablesRelativeWithIntrinsicBounds(noIcon,0,0,0);
+        }else{
+            txtViewAlcohol.setCompoundDrawablesRelativeWithIntrinsicBounds(yesIcon,0,0,0);
+        }
+
+        if(petFriendly.equals(getString(R.string.str_yes))){
+            txtViewPetFriendly.setCompoundDrawablesRelativeWithIntrinsicBounds(yesIcon,0,0,0);
+        }else{
+            txtViewPetFriendly.setCompoundDrawablesRelativeWithIntrinsicBounds(noIcon,0,0,0);
+        }
+
+        if(sharedCook.equals(getString(R.string.str_yes))){
+            txtViewSharedCook.setCompoundDrawablesRelativeWithIntrinsicBounds(yesIcon,0,0,0);
+        }else{
+            txtViewSharedCook.setCompoundDrawablesRelativeWithIntrinsicBounds(noIcon,0,0,0);
+        }
+
+        Boolean available = userDetails.getActivelySearching();
+        for (Drawable drawable : txtViewName.getCompoundDrawables()) {
+            if (drawable != null) {
+                if(available)
+                    drawable.setColorFilter( Color.parseColor("#b2d604"), PorterDuff.Mode.SRC_IN);
+                else
+                    drawable.setColorFilter( Color.parseColor("#bc2929"), PorterDuff.Mode.SRC_IN);
+            }
+        }
 
         progressBar.setVisibility(View.GONE);
     }
@@ -169,6 +226,11 @@ public class ProfileViewActivity extends AppCompatActivity {
         txtViewWakeUpTime = this.findViewById(R.id.tvWakeupTime);
         txtViewMinBudget = this.findViewById(R.id.tvMinBudget);
         txtViewMaxBudget = this.findViewById(R.id.tvMaxBudget);
+        txtViewFood = this.findViewById(R.id.tvFood);
+        txtViewSmoke = this.findViewById(R.id.tvSmoke);
+        txtViewAlcohol = this.findViewById(R.id.tvAlcohol);
+        txtViewPetFriendly = this.findViewById(R.id.tvPetFriendly);
+        txtViewSharedCook = this.findViewById(R.id.tvSharedCook);
         txtViewCleanlinessScale = this.findViewById(R.id.tvCleanlinessScale);
         txtViewLoudnessScale = this.findViewById(R.id.tvLoudnessScale);
         txtViewVisitorScale = this.findViewById(R.id.tvVisitorScale);

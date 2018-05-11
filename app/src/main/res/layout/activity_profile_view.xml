@@ -70,7 +70,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginTop="60dp"
-                                    android:drawableEnd="@drawable/ic_near_me_black_24dp"
+                                    android:drawableEnd="@drawable/ic_fiber_manual_record_black_24dp"
                                     android:drawablePadding="5dp"
                                     android:drawableTint="@color/colorPrimary"
                                     android:text="Mr John Doe"
@@ -165,7 +165,7 @@
                                     android:layout_gravity="center_horizontal"
                                     android:layout_marginTop="3dp"
                                     android:drawablePadding="5dp"
-                                    android:drawableStart="@drawable/ic_near_me_black_24dp"
+                                    android:drawableStart="@drawable/ic_location_on_black_24dp"
                                     android:text="5 miles"
                                     android:textAlignment="center"
                                     android:textSize="20sp" />
@@ -294,6 +294,7 @@
                             android:weightSum="5">
 
                             <TextView
+                                android:id="@+id/tvFood"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="5dp"
@@ -305,6 +306,7 @@
                                 android:textSize="10sp" />
 
                             <TextView
+                                android:id="@+id/tvSmoke"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="5dp"
@@ -316,6 +318,7 @@
                                 android:textSize="10sp" />
 
                             <TextView
+                                android:id="@+id/tvAlcohol"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="5dp"
@@ -329,6 +332,7 @@
 
                             <!--@drawable/ic_cancel_black_12dp"-->
                             <TextView
+                                android:id="@+id/tvPetFriendly"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="5dp"
@@ -340,6 +344,7 @@
                                 android:textSize="10sp" />
 
                             <TextView
+                                android:id="@+id/tvSharedCook"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"

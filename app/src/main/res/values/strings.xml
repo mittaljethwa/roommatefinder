@@ -90,6 +90,11 @@
     <string name="visitor_scale">visitorScale</string>
     <string name="bed_Time">bedTime</string>
     <string name="wakeup_Time">wakeupTime</string>
+    <string name="food">foodPref</string>
+    <string name="smoke">smokePref</string>
+    <string name="alcohol">alcoholPref</string>
+    <string name="pet_Friendly">petFriendlyPref</string>
+    <string name="shared_cook">sharedCookingPref</string>
     <string name="title_maximum_budget">Maximum Budget : $</string>
     <string name="noMaxBudget">Budget: N/A</string>
 </resources>
