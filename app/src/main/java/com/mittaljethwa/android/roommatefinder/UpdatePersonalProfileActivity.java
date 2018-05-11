@@ -96,6 +96,7 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
                 else {
                     Log.d(TAG,"User data snapshot is not null, Loading Data" + dataSnapshot.getValue());
                     userDetails = dataSnapshot.getValue(RoommateDetails.class);
+                    Log.d("ROOMMATE READING: ",userDetails.toString());
                     loadData();
                 }
             }
@@ -187,6 +188,7 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
             userDetails.setActivelySearching(isActivelySearching);
             userDetails.setEmail(user.getEmail());
 
+            Log.d("ROOMMATE LOADED : ",userDetails.toString());
             progressBar.setVisibility(View.VISIBLE);
 
             saveUserProfileOnServer(userDetails);
@@ -203,10 +205,13 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString(UserProfile.class.getSimpleName(), new Gson().toJson(userProfile));
             editor.apply();
+
+        Log.d("ROOMMATE DEVICE: ",userDetails.toString());
     }
 
     private void saveUserProfileOnServer(final RoommateDetails userDetails) {
 
+        Log.d("ROOMMATE SAVING: ",userDetails.toString());
 //        //Creating a new user object on server and get key
         final String userKey = auth.getCurrentUser().getUid();
 
@@ -239,12 +244,12 @@ public class UpdatePersonalProfileActivity extends AppCompatActivity {
     private void updateUI(String userKey) {
         if(userKey != null) {
 
-            FirebaseUtils.getRefToSpecificUser(userKey).child("housing").addListenerForSingleValueEvent(new ValueEventListener() {
+            FirebaseUtils.getRefToSpecificUser(userKey).child("housingPreferences").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if(dataSnapshot.getValue() == null)
                     {
-                        Log.d(TAG,"Housing snapshot is null, asking user to update housing preference");
+                        Log.d(TAG,"Housing snapshot is null, asking user to update housingPreferences preference");
                         Intent updateIntent = new Intent(UpdatePersonalProfileActivity.this, UpdateHousingPreferencesActivity.class);
                         startActivity(updateIntent);                            }
                     else {

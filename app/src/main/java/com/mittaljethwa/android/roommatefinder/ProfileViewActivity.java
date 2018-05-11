@@ -1,6 +1,5 @@
 package com.mittaljethwa.android.roommatefinder;
 
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,7 +34,7 @@ public class ProfileViewActivity extends AppCompatActivity {
     private TextView txtViewWakeUpTime;
     private TextView txtViewMinBudget;
     private TextView txtViewMaxBudget;
-    private TextView txtViewClenlinessScale;
+    private TextView txtViewCleanlinessScale;
     private TextView txtViewLoudnessScale;
     private TextView txtViewVisitorScale;
 
@@ -103,7 +102,7 @@ public class ProfileViewActivity extends AppCompatActivity {
                 else {
                     Log.d(TAG,"User data snapshot is not null, Loading Data" + dataSnapshot.getValue());
                     userDetails = dataSnapshot.getValue(RoommateDetails.class);
-                    String locationPlaceID = userDetails.getHousingPreferences().get(R.string.place_id).toString();
+                    String locationPlaceID = userDetails.getHousingPreferences().get(getString(R.string.place_id)).toString();
                     Task<PlaceBufferResponse> placeResult = mGeoDataClient.getPlaceById(locationPlaceID);
                     placeResult.addOnCompleteListener(mUpdatePlaceDetailsCallback);
                     loadData();
@@ -122,17 +121,17 @@ public class ProfileViewActivity extends AppCompatActivity {
         txtViewGender.setText(userDetails.getGender());
         txtViewProfileCategory.setText(userDetails.getProfileCategory());
         txtViewBirthDate.setText(userDetails.getBirthdate());
-        txtViewRoomType.setText(userDetails.getHousingPreferences().get(R.string.room_type).toString());
+        txtViewRoomType.setText(userDetails.getHousingPreferences().get(getString(R.string.room_type)).toString());
         txtViewBio.setText(userDetails.getBio());
         txtViewLocation.setText(preferredLocationPlaceName);
-        txtViewRadius.setText(userDetails.getHousingPreferences().get(R.string.search_radius).toString());
-        txtViewBedTime.setText(userDetails.getLifestylePreferences().get(R.string.bed_time).toString());
-        txtViewWakeUpTime.setText(userDetails.getLifestylePreferences().get(R.string.wakeup_time).toString());
-        txtViewMinBudget.setText(userDetails.getHousingPreferences().get(R.string.min_budget).toString());
-        txtViewMaxBudget.setText(userDetails.getHousingPreferences().get(R.string.max_budget).toString());
-        txtViewClenlinessScale.setText(userDetails.getLifestylePreferences().get(R.string.cleanliness_scale).toString());
-        txtViewLoudnessScale.setText(userDetails.getLifestylePreferences().get(R.string.loudness_scale).toString());
-        txtViewVisitorScale.setText(userDetails.getLifestylePreferences().get(R.string.visitor_scale).toString());
+        txtViewRadius.setText(userDetails.getHousingPreferences().get(getString(R.string.search_radius)).toString());
+        txtViewBedTime.setText(userDetails.getLifestylePreferences().get(getString(R.string.bed_Time)).toString());
+        txtViewWakeUpTime.setText(userDetails.getLifestylePreferences().get(getString(R.string.wakeup_Time)).toString());
+        txtViewMinBudget.setText(userDetails.getHousingPreferences().get(getString(R.string.min_Budget)).toString());
+        txtViewMaxBudget.setText(userDetails.getHousingPreferences().get(getString(R.string.max_Budget)).toString());
+        txtViewCleanlinessScale.setText(userDetails.getLifestylePreferences().get(getString(R.string.cleanliness_scale)).toString());
+        txtViewLoudnessScale.setText(userDetails.getLifestylePreferences().get(getString(R.string.loudness_scale)).toString());
+        txtViewVisitorScale.setText(userDetails.getLifestylePreferences().get(getString(R.string.visitor_scale)).toString());
     }
 
     private void initializeUIElements() {
@@ -148,7 +147,7 @@ public class ProfileViewActivity extends AppCompatActivity {
         txtViewWakeUpTime = this.findViewById(R.id.tvWakeupTime);
         txtViewMinBudget = this.findViewById(R.id.tvMinBudget);
         txtViewMaxBudget = this.findViewById(R.id.tvMaxBudget);
-        txtViewClenlinessScale = this.findViewById(R.id.tvCleanlinessScale);
+        txtViewCleanlinessScale = this.findViewById(R.id.tvCleanlinessScale);
         txtViewLoudnessScale = this.findViewById(R.id.tvLoudnessScale);
         txtViewVisitorScale = this.findViewById(R.id.tvVisitorScale);
     }

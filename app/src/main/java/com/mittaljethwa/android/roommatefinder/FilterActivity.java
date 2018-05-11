@@ -1,6 +1,7 @@
 package com.mittaljethwa.android.roommatefinder;
 
 import android.content.SharedPreferences;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Toast;
@@ -39,7 +39,8 @@ public class FilterActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     
     private String userKey;
-    private UserProfile userProfile;
+//    private UserProfile userProfile;
+    private RoommateDetails userProfile;
     
     private SharedPreferences sharedPreferences;
     private HousePreference housePreference;
@@ -50,7 +51,7 @@ public class FilterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_filter);
 
         userKey = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        sharedPreferences = getSharedPreferences(userKey,MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences(MainActivity.class.getSimpleName(),MODE_PRIVATE);
 
         initializeUIElements();
         
@@ -85,7 +86,7 @@ public class FilterActivity extends AppCompatActivity {
         }
         else {
             radioGender.check(getGenderID(customFilter.getGender()));
-            radioProfileCategory.check(getProfileCategoryID(customFilter.getProfileCateogry()));
+            radioProfileCategory.check(getProfileCategoryID(customFilter.getProfileCategory()));
             radioSmokePref.check(getSmokePrefID(customFilter.getSmokePref()));
             radioAlcoholPref.check(getAlcoholPrefID(customFilter.getAlcoholPref()));
             radioPetFriendlyPref.check(getPetFriendlyPrefID(customFilter.getPetFriendlyPref()));
@@ -133,12 +134,7 @@ public class FilterActivity extends AppCompatActivity {
             customFilters.setGender(gender);
         }
 
-        if (profileCategory.equals("None")) {
-            customFilters.setProfileCateogry("");
-        }
-        else {
-            customFilters.setProfileCateogry(profileCategory);
-        }
+
 
         if (smokePref.equals("None")) {
             customFilters.setSmokePref("");
@@ -161,6 +157,7 @@ public class FilterActivity extends AppCompatActivity {
             customFilters.setPetFriendlyPref(petFriendlyPref);
         }
 
+        customFilters.setProfileCategory(profileCategory);
         customFilters.setCleanlinessScale(cleanlinessScale);
         customFilters.setLoudnessScale(visitorScale);
         customFilters.setVisitorScale(loudnessScale);
@@ -218,7 +215,7 @@ public class FilterActivity extends AppCompatActivity {
                 }
                 else {
                     Log.d(TAG,"User profile data snapshot is not null, Loading Data " + dataSnapshot.getValue());
-                    userProfile = dataSnapshot.getValue(UserProfile.class);
+                    userProfile = dataSnapshot.getValue(RoommateDetails.class);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString(userKey, new Gson().toJson(userProfile));
                     editor.apply();
@@ -289,9 +286,9 @@ public class FilterActivity extends AppCompatActivity {
         switch (checkedRadioButtonId) {
             case -1:
                 return "None";
-            case R.id.radioProfileStudent:
+            case R.id.radioStudent:
                 return "Student";
-            case R.id.radioProfileProfessional:
+            case R.id.radioProfessional:
                 return "Professional";
             default:
                 return "Any";

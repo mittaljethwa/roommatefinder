@@ -7,7 +7,7 @@ package com.mittaljethwa.android.roommatefinder;
 public class Filters {
 
     String gender;
-    String profileCateogry;
+    String profileCategory;
     String smokePref;
     String alcoholPref;
     String petFriendlyPref;
@@ -25,12 +25,12 @@ public class Filters {
         this.gender = gender;
     }
 
-    public String getProfileCateogry() {
-        return profileCateogry;
+    public String getProfileCategory() {
+        return profileCategory;
     }
 
-    public void setProfileCateogry(String profileCateogry) {
-        this.profileCateogry = profileCateogry;
+    public void setProfileCategory(String profileCategory) {
+        this.profileCategory = profileCategory;
     }
 
     public String getSmokePref() {

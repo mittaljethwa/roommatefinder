@@ -6,7 +6,8 @@
     android:fillViewport="true"
     android:scrollbars="none" >
 
-    <LinearLayout android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <RelativeLayout
@@ -292,7 +293,7 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/tags"
                                 android:drawablePadding="5dp"
-                                android:drawableStart="@drawable/ic_check_black_12dp"
+                                android:drawableStart="@drawable/ic_check_circle_black_12dp"
                                 android:text="@string/str_veg"
                                 android:textSize="10sp" />
 
@@ -303,7 +304,7 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/tags"
                                 android:drawablePadding="5dp"
-                                android:drawableStart="@drawable/ic_check_black_12dp"
+                                android:drawableStart="@drawable/ic_check_circle_black_12dp"
                                 android:text="@string/str_smoke"
                                 android:textSize="10sp" />
 
@@ -318,6 +319,8 @@
                                 android:text="@string/str_alcohol"
                                 android:textSize="10sp" />
 
+
+                            <!--@drawable/ic_cancel_black_12dp"-->
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -325,7 +328,7 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/tags"
                                 android:drawablePadding="5dp"
-                                android:drawableStart="@drawable/ic_check_black_12dp"
+                                android:drawableStart="@drawable/ic_check_circle_black_12dp"
                                 android:text="@string/pet_friendly"
                                 android:textSize="10sp" />
 
@@ -335,7 +338,7 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/tags"
                                 android:drawablePadding="5dp"
-                                android:drawableStart="@drawable/ic_check_black_12dp"
+                                android:drawableStart="@drawable/ic_check_circle_black_12dp"
                                 android:text="@string/shared_cooking"
                                 android:textSize="10sp" />
 

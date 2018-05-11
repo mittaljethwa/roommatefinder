@@ -1,12 +1,10 @@
 package com.mittaljethwa.android.roommatefinder;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,11 +18,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.google.android.gms.location.places.PlaceBufferResponse;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -50,9 +47,11 @@ public class HomeActivity extends AppCompatActivity
     private RecyclerView recyclerRoommates;
     private TextView noRoommatesTextView;
     private String gender = null;
+    private Button applyFilterButton;
 
     private SharedPreferences sharedPreferences;
     private UserProfile userProfile;
+    private RoommateDetails roommateDetails;
     private List<RoommateDetails> roomDetailsList;
 
     @Override
@@ -64,13 +63,16 @@ public class HomeActivity extends AppCompatActivity
         toolbar.setTitle(getString(R.string.title_activity_home));
         setSupportActionBar(toolbar);
 
+        applyFilterButton = this.findViewById(R.id.applyFilterButton);
         String currentUserKey = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        sharedPreferences = getSharedPreferences(currentUserKey,MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences(MainActivity.class.getSimpleName(),MODE_PRIVATE);
 
         recyclerRoommates = this.findViewById(R.id.recyclerRoommates);
         noRoommatesTextView = this.findViewById(R.id.textNoRoommates);
+
+
 
         if (progressBar != null) {
             progressBar.setVisibility(View.GONE);
@@ -96,27 +98,14 @@ public class HomeActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        loadUserProfile();
+        View headerView = navigationView.getHeaderView(0);
+        textAccountName = headerView.findViewById(R.id.accountName);
+        textAccountEmail = headerView.findViewById(R.id.accountEmail);
 
-        if (userProfile != null) {
+        //Get User Profile from Firebase and load initial search result
+        final String userKey = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        getUserProfileFromFirebase(userKey);
 
-            View headerView = navigationView.getHeaderView(0);
-            textAccountName = headerView.findViewById(R.id.accountName);
-            textAccountEmail = headerView.findViewById(R.id.accountEmail);
-
-            textAccountName.setText(userProfile.getFirstname() + " " + userProfile.getLastname());
-            textAccountEmail.setText(userProfile.getEmail());
-            gender = userProfile.getGender();
-        }
-
-        if (sharedPreferences.getString("Filters","") == "")
-            //No filters are set
-            loadInitialResults();
-        else {
-            //Use user applied filters
-            Log.d("User filters: ","filters present");
-            applyCustomFilters();
-        }
 
 
         //get firebase auth instance
@@ -135,6 +124,24 @@ public class HomeActivity extends AppCompatActivity
                 }
             }
         };
+
+        applyFilterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (sharedPreferences.getString("Filters","") == "") {
+                    //No filters are set
+                    Log.d("No filters: ", "Default filters");
+                    loadInitialResults();
+                }
+                else {
+                    //Use user applied filters
+                    Log.d("User filters: ","filters present");
+                    applyCustomFilters();
+                }
+
+            }
+        });
     }
 
     private void applyCustomFilters() {
@@ -178,27 +185,57 @@ public class HomeActivity extends AppCompatActivity
 
     private boolean filtersApplicable(RoommateDetails roommateDetails, Filters customFilters) {
         boolean isAMatch = true;
-        if (customFilters.getProfileCateogry().equals("Any")) {
+        if (customFilters.getProfileCategory().equals("Any")) {
             isAMatch = true;
         }
-        else if (!customFilters.getProfileCateogry().equals(roommateDetails.getProfileCategory())) {
+        else if (!customFilters.getProfileCategory().equals(roommateDetails.getProfileCategory())) {
             return false;
         }
 
-        if(customFilters.getSmokePref().equals("")) {
+        if (roommateDetails.getLifestylePreferences() == null) {
             isAMatch = true;
         }
-        else if(!customFilters.getSmokePref().equals(roommateDetails.getLifestylePreferences().get("smokePref"))) {
-            return false;
-        }
+        else {
 
-        if(customFilters.getAlcoholPref().equals("")) {
-            isAMatch = true;
-        }
-        else if(!customFilters.getAlcoholPref().equals(roommateDetails.getLifestylePreferences().get("smokePref"))) {
-            return false;
-        }
+            if(customFilters.getSmokePref().equals("")) {
+                isAMatch = true;
+            }
+            else if (!customFilters.getSmokePref().equals(roommateDetails.getLifestylePreferences().get("smokePref"))) {
+                return false;
+            }
 
+            if (customFilters.getAlcoholPref().equals("")) {
+                isAMatch = true;
+            } else if (!customFilters.getAlcoholPref().equals(roommateDetails.getLifestylePreferences().get("alcoholPref"))) {
+                return false;
+            }
+
+            if (customFilters.getPetFriendlyPref().equals("")) {
+                isAMatch = true;
+            } else if (!customFilters.getPetFriendlyPref().equals(roommateDetails.getLifestylePreferences().get("petFriendlyPref"))) {
+                return false;
+            }
+
+            //Return false if Cleanliness scale of roommates is less than filter scale
+            if(Integer.parseInt(customFilters.getCleanlinessScale()) >
+                    Integer.parseInt(String.valueOf(roommateDetails.getLifestylePreferences().get("cleanlinessScale")))) {
+                return false;
+            }
+
+            //Return false if Loudness scale of roommates is higher than filter scale
+            if(Integer.parseInt(customFilters.getLoudnessScale()) <
+                    Integer.parseInt(String.valueOf(roommateDetails.getLifestylePreferences().get("loudnessScale")))) {
+                return false;
+            }
+
+            //Return false if Visitor scale of roommates is higher than filter scale
+            if(Integer.parseInt(customFilters.getVisitorScale()) <
+                    Integer.parseInt(String.valueOf(roommateDetails.getLifestylePreferences().get("visitorScale")))) {
+                return false;
+            }
+
+
+        }
         return true;
     }
 
@@ -258,8 +295,8 @@ public class HomeActivity extends AppCompatActivity
             RoommatesRecyclerAdapter adapter = new RoommatesRecyclerAdapter(roomDetailsList, new RoommatesRecyclerAdapter.ItemClickedListener() {
                 @Override
                 public void onItemActionButtonClicked(RoommateDetails roommateDetails) {
-                    //enrollToTheCourse(classDetails.getWaitlist() > 0, classDetails);
                     Log.d("Item Clicked",roommateDetails.getFirstname());
+                    startActivityForResult(new Intent(HomeActivity.this,ProfileViewActivity.class),FROM_HOME);
                 }
             });
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -332,12 +369,33 @@ public class HomeActivity extends AppCompatActivity
     }
 
     void loadUserProfile() {
-        final String userKey = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        getUserProfileFromFirebase(userKey);
+        String userKey = FirebaseAuth.getInstance().getCurrentUser().getUid();
         String userProfileData = sharedPreferences.getString(userKey, "");
-        userProfile = new Gson().fromJson(userProfileData, UserProfile.class);
-        Log.d(TAG,"User data: " + userProfile);
+        roommateDetails = new Gson().fromJson(userProfileData, RoommateDetails.class);
+        Log.d(TAG,"User data: " + roommateDetails);
+
+        loadElements();
     }
+
+    private void loadElements() {
+
+        if (roommateDetails != null) {
+
+            textAccountName.setText(roommateDetails.getFirstname() + " " + roommateDetails.getLastname());
+            textAccountEmail.setText(roommateDetails.getEmail());
+            gender = roommateDetails.getGender();
+        }
+
+        if (sharedPreferences.getString("Filters","") == "")
+            //No filters are set
+            loadInitialResults();
+        else {
+            //Use user applied filters
+            Log.d("User filters: ","filters present");
+            applyCustomFilters();
+        }
+    }
+
     //sign out method
     public void signOut() {
         auth.signOut();
@@ -394,10 +452,12 @@ public class HomeActivity extends AppCompatActivity
                 }
                 else {
                     Log.d(TAG,"User profile data snapshot is not null, Loading Data " + dataSnapshot.getValue());
-                    userProfile = dataSnapshot.getValue(UserProfile.class);
+                    roommateDetails = dataSnapshot.getValue(RoommateDetails.class);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString(userKey, new Gson().toJson(userProfile));
+                    editor.putString(userKey, new Gson().toJson(roommateDetails));
                     editor.apply();
+
+                    loadUserProfile();
                 }
             }
 

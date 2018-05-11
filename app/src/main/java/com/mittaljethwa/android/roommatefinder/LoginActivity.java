@@ -119,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
         if(user != null) {
 
-                String key = user.getUid();
+                final String key = user.getUid();
                 FirebaseUtils.getRefToSpecificUser(key).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -133,7 +133,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             SharedPreferences sharedPreferences = getSharedPreferences(MainActivity.class.getSimpleName(),MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString(UserProfile.class.getSimpleName(), new Gson().toJson(dataSnapshot.getValue()));
+                            editor.putString(key, new Gson().toJson(dataSnapshot.getValue()));
                             editor.apply();
 
                             Log.d(TAG,dataSnapshot.getValue().toString());

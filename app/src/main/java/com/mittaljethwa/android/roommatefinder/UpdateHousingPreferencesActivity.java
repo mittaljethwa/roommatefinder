@@ -88,6 +88,7 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
         // Set up the adapter that will retrieve suggestions from the Places Geo Data Client.
         mAdapter = new PlaceAutocompleteAdapter(this, mGeoDataClient, BOUNDS_SAN_DIEGO, null);
         mAutocompleteView.setAdapter(mAdapter);
+        mAutocompleteView.clearFocus();
 
         //get current user
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -191,7 +192,8 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
 
         if(Utils.isNetworkConnected(getApplicationContext())) {
 
-            housePreference = new HousePreference();
+            if (housePreference == null)
+                housePreference = new HousePreference();
             String location;
             float radius;
             float minBudget;
@@ -254,7 +256,7 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
 
         final String userKey = auth.getCurrentUser().getUid();
 
-        userDatabase.child(userKey).child("housing").setValue(housePreference, new DatabaseReference.CompletionListener() {
+        userDatabase.child(userKey).child("housingPreferences").setValue(housePreference, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
@@ -313,7 +315,7 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
 
     private void readUserDataFromFirebase() {
         String key = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        FirebaseUtils.getRefToSpecificUser(key).child("housing").addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseUtils.getRefToSpecificUser(key).child("housingPreferences").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.getValue() == null) {
@@ -324,6 +326,7 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
                     housePreference = dataSnapshot.getValue(HousePreference.class);
 
                     String locationPlaceID = housePreference.getPlaceID();
+                    preferredLocationPlaceID = locationPlaceID;
                     Task<PlaceBufferResponse> placeResult = mGeoDataClient.getPlaceById(locationPlaceID);
                     placeResult.addOnCompleteListener(mUpdatePlaceDetailsCallback);
                 }

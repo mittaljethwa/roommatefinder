@@ -261,7 +261,7 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
 
         final String userKey = auth.getCurrentUser().getUid();
 
-        userDatabase.child(userKey).child("lifestyle").setValue(lifestylePreference, new DatabaseReference.CompletionListener() {
+        userDatabase.child(userKey).child("lifestylePreferences").setValue(lifestylePreference, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 
@@ -431,7 +431,7 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
 
     private void readUserDataFromFirebase() {
         String key = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        FirebaseUtils.getRefToSpecificUser(key).child("lifestyle").addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseUtils.getRefToSpecificUser(key).child("lifestylePreferences").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
                 if(dataSnapshot.getValue() == null) {

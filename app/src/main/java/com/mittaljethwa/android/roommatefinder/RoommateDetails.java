@@ -12,12 +12,12 @@ public class RoommateDetails {
     String birthdate;
     String lastname;
     String email;
-    HashMap<String,Object> housing;//housing={placeID=ChIJzQ7MT3bQ24ARlDAdXPQe5fw, maxBudget=300, searchRadius=2, roomType=Shared, minBudget=200},
+    HashMap<String,Object> housingPreferences;//housingPreferences={placeID=ChIJzQ7MT3bQ24ARlDAdXPQe5fw, maxBudget=300, searchRadius=2, roomType=Shared, minBudget=200},
     String gender;
     String firstname;
     String bio;
     String profileCategory;
-    HashMap<String,Object> lifestyle;//lifestyle={wakeupTime=07:00, visitorScale=4, sharedCookingPref=No, foodPref=Veg, loudnessScale=2, bedTime=23:00
+    HashMap<String,Object> lifestylePreferences;//lifestylePreferences={wakeupTime=07:00, visitorScale=4, sharedCookingPref=No, foodPref=Veg, loudnessScale=2, bedTime=23:00
 
 
     public Boolean getActivelySearching() {
@@ -53,19 +53,19 @@ public class RoommateDetails {
     }
 
     public HashMap<String, Object> getHousingPreferences() {
-        return housing;
+        return housingPreferences;
     }
 
     public void setHousingPreferences(HashMap<String, Object> housing) {
-        this.housing = housing;
+        this.housingPreferences = housing;
     }
 
     public HashMap<String, Object> getLifestylePreferences() {
-        return lifestyle;
+        return lifestylePreferences;
     }
 
     public void setLifestylePreferences(HashMap<String, Object> lifestyle) {
-        this.lifestyle = lifestyle;
+        this.lifestylePreferences = lifestyle;
     }
 
     public String getGender() {
@@ -98,5 +98,21 @@ public class RoommateDetails {
 
     public void setProfileCategory(String profileCategory) {
         this.profileCategory = profileCategory;
+    }
+
+    @Override
+    public String toString() {
+        return "RoommateDetails{" +
+                "activelySearching=" + activelySearching +
+                ", birthdate='" + birthdate + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", email='" + email + '\'' +
+                ", housingPreferences=" + housingPreferences +
+                ", gender='" + gender + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", bio='" + bio + '\'' +
+                ", profileCategory='" + profileCategory + '\'' +
+                ", lifestylePreferences=" + lifestylePreferences +
+                '}';
     }
 }
