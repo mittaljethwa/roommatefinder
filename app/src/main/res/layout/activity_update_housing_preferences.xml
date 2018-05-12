@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context="com.mittaljethwa.android.roommatefinder.UpdateHousingPreferencesActivity">
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.NoTitleBar.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.NoTitleBar.PopupOverlay"
+            app:title="@string/label_housing_preferences" />
+
+    </android.support.design.widget.AppBarLayout>
+
     <include
         layout="@layout/housing_preferences"
         android:layout_width="match_parent"

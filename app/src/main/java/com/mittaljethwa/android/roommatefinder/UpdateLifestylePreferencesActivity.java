@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.util.Log;
 import android.app.TimePickerDialog;
@@ -70,6 +72,7 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
 
         readUserDataFromFirebase();
+
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -478,6 +481,12 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
         inputBedTime.setText(bedTime);
         inputWakeupTime.setText(wakeupTime);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setTitle(getString(R.string.label_lifestyle_preferences));
+
         progressBar.setVisibility(View.GONE);
     }
 
@@ -501,6 +510,14 @@ public class UpdateLifestylePreferencesActivity extends AppCompatActivity {
         inputBedTime.setClickable(true);
         inputWakeupTime.setFocusable(false);
         inputWakeupTime.setClickable(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return (super.onOptionsItemSelected(item));
     }
 
     @Override

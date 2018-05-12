@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -106,6 +107,10 @@ public class HomeActivity extends AppCompatActivity
 
         //Get User Profile from Firebase and load initial search result
         final String userKey = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        Toast.makeText(this,
+                this.getResources().getString(R.string.messageWaitForResults),
+                Toast.LENGTH_SHORT).show();
         getUserProfileFromFirebase(userKey);
 
         //get firebase auth instance
@@ -128,6 +133,10 @@ public class HomeActivity extends AppCompatActivity
         applyFilterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Toast.makeText(getApplicationContext(),
+                        getApplicationContext().getResources().getString(R.string.messageWaitForResults),
+                        Toast.LENGTH_SHORT).show();
 
                 if (sharedPreferences.getString("Filters","") == "") {
                     //No filters are set
@@ -166,7 +175,9 @@ public class HomeActivity extends AppCompatActivity
                         if(!user.getKey().equals(currentUserKey)) {
 
                             RoommateDetails roommateDetails = user.getValue(RoommateDetails.class);
+                            Log.d("FOUND USER: ",roommateDetails.toString());
                             if(filtersApplicable(roommateDetails,customFilters)) {
+                                Log.d("FILTERED USER: ",roommateDetails.toString());
                                 roomDetailsList.add(roommateDetails);
                             }
                         }

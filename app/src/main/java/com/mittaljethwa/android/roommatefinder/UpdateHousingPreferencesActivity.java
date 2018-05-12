@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
@@ -77,6 +79,9 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         sharedPreferences = getSharedPreferences(MainActivity.class.getSimpleName(),MODE_PRIVATE);
 
+        //get current user
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
         initializeUIElements();
 
         // Construct a GeoDataClient for the Google Places API for Android.
@@ -90,13 +95,9 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
         mAutocompleteView.setAdapter(mAdapter);
         mAutocompleteView.clearFocus();
 
-        //get current user
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
         progressBar.setVisibility(View.VISIBLE);
 
         readUserDataFromFirebase();
-
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,9 +139,7 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
 //            Task<PlaceBufferResponse> placeResult = mGeoDataClient.getPlaceById(placeId);
 //            placeResult.addOnCompleteListener(mUpdatePlaceDetailsCallback);
 
-            Toast.makeText(getApplicationContext(), "Clicked: " + primaryText,
-                    Toast.LENGTH_SHORT).show();
-            Log.i(TAG, "Called getPlaceById to get Place details for " + placeId);
+
         }
     };
 
@@ -197,6 +196,7 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
 
             if (housePreference == null)
                 housePreference = new HousePreference();
+
             String location;
             float radius;
             float minBudget;
@@ -359,6 +359,12 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
         inputMaxBudget.setText(String.valueOf(maxBudget));
         radioRoomType.check(getRoomTypeID(roomType));
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setTitle(getString(R.string.label_housing_preferences));
+
         progressBar.setVisibility(View.GONE);
     }
 
@@ -373,6 +379,14 @@ public class UpdateHousingPreferencesActivity extends AppCompatActivity {
         buttonSave = this.findViewById(R.id.saveHousingButton);
 
         progressBar = this.findViewById(R.id.progressBar);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return (super.onOptionsItemSelected(item));
     }
 
     @Override

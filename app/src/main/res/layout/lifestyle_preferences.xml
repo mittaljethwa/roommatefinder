@@ -11,26 +11,28 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/mainLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:orientation="vertical"
             android:padding="18dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="18dp"
-                android:orientation="horizontal">
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="18dp"-->
+            <!--android:orientation="horizontal">-->
 
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/lifestyle_preferences"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textSize="24sp"/>
-            </LinearLayout>
+            <!--<TextView-->
+            <!--android:id="@+id/textView9"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:text="@string/lifestyle_preferences"-->
+            <!--android:textAppearance="@style/TextAppearance.AppCompat.Title"-->
+            <!--android:textSize="24sp"/>-->
+            <!--</LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -42,7 +44,7 @@
                     android:id="@+id/textView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/str_food"/>
+                    android:text="@string/str_food" />
 
                 <RadioGroup
                     android:id="@+id/rgProfilePreferencesFood"
@@ -54,13 +56,13 @@
                         android:id="@+id/rbProfilePreferencesFoodVeg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/str_veg"/>
+                        android:text="@string/str_veg" />
 
                     <RadioButton
                         android:id="@+id/rbProfilePreferencesFoodNonVeg"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/str_non_veg"/>
+                        android:text="@string/str_non_veg" />
 
                 </RadioGroup>
             </LinearLayout>
@@ -75,7 +77,7 @@
                     android:id="@+id/textView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/str_smoke"/>
+                    android:text="@string/str_smoke" />
 
                 <RadioGroup
                     android:id="@+id/rgProfilePreferencesSmoke"
@@ -87,20 +89,20 @@
                         android:id="@+id/rbProfilePreferencesSmokeYes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/str_yes"/>
+                        android:text="@string/str_yes" />
 
                     <RadioButton
                         android:id="@+id/rbProfilePreferencesSmokeNo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/str_no"/>
+                        android:text="@string/str_no" />
 
                     <RadioButton
                         android:id="@+id/rbProfilePreferencesSmokeOccasional"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/str_occasional"/>
+                        android:text="@string/str_occasional" />
 
                 </RadioGroup>
             </LinearLayout>
@@ -115,7 +117,7 @@
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/str_alcohol"/>
+                    android:text="@string/str_alcohol" />
 
                 <RadioGroup
                     android:id="@+id/rgProfilePreferencesAlcohol"
@@ -127,20 +129,20 @@
                         android:id="@+id/rbProfilePreferencesAlcoholYes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/str_yes"/>
+                        android:text="@string/str_yes" />
 
                     <RadioButton
                         android:id="@+id/rbProfilePreferencesAlcoholNo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/str_no"/>
+                        android:text="@string/str_no" />
 
                     <RadioButton
                         android:id="@+id/rbProfilePreferencesAlcoholOccasional"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/str_occasional"/>
+                        android:text="@string/str_occasional" />
 
                 </RadioGroup>
             </LinearLayout>
@@ -155,7 +157,7 @@
                     android:id="@+id/textView13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pet_friendly"/>
+                    android:text="@string/pet_friendly" />
 
                 <RadioGroup
                     android:id="@+id/rgProfilePreferencesPet"
@@ -167,13 +169,13 @@
                         android:id="@+id/rbProfilePreferencesPetYes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/str_yes"/>
+                        android:text="@string/str_yes" />
 
                     <RadioButton
                         android:id="@+id/rbProfilePreferencesPetNo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/str_no"/>
+                        android:text="@string/str_no" />
 
                 </RadioGroup>
             </LinearLayout>
@@ -188,7 +190,7 @@
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/shared_cooking"/>
+                    android:text="@string/shared_cooking" />
 
                 <RadioGroup
                     android:id="@+id/rgProfilePreferencesCooking"
@@ -200,13 +202,13 @@
                         android:id="@+id/rbProfilePreferencesCookingYes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/str_yes"/>
+                        android:text="@string/str_yes" />
 
                     <RadioButton
                         android:id="@+id/rbProfilePreferencesCookingNo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/str_no"/>
+                        android:text="@string/str_no" />
 
                 </RadioGroup>
             </LinearLayout>
@@ -221,13 +223,13 @@
                     android:id="@+id/textView3"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/str_cleanliness"/>
+                    android:text="@string/str_cleanliness" />
 
                 <SeekBar
                     android:id="@+id/sbProfilePreferencesCleanliness"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="10"/>
+                    android:max="10" />
             </LinearLayout>
 
             <LinearLayout
@@ -240,13 +242,13 @@
                     android:id="@+id/textView14"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/str_loudness"/>
+                    android:text="@string/str_loudness" />
 
                 <SeekBar
                     android:id="@+id/sbProfilePreferencesLoudness"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="10"/>
+                    android:max="10" />
             </LinearLayout>
 
             <LinearLayout
@@ -259,13 +261,13 @@
                     android:id="@+id/textView4"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/str_visitor"/>
+                    android:text="@string/str_visitor" />
 
                 <SeekBar
                     android:id="@+id/sbProfilePreferencesVisitor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="10"/>
+                    android:max="10" />
             </LinearLayout>
 
             <LinearLayout
@@ -278,13 +280,13 @@
                     android:id="@+id/label_bedTime"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/bed_time"/>
+                    android:text="@string/bed_time" />
 
                 <EditText
                     android:id="@+id/bedTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="time"/>
+                    android:inputType="time" />
 
             </LinearLayout>
 
@@ -298,13 +300,13 @@
                     android:id="@+id/label_wakeupTime"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/wakeup_time"/>
+                    android:text="@string/wakeup_time" />
 
                 <EditText
                     android:id="@+id/wakeupTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="time"/>
+                    android:inputType="time" />
 
             </LinearLayout>
 

@@ -5,6 +5,21 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.NoTitleBar.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.NoTitleBar.PopupOverlay"
+            app:title="@string/label_profile" />
+
+    </android.support.design.widget.AppBarLayout>
+
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -12,23 +27,25 @@
         android:fillViewport="true">
 
         <LinearLayout
+            android:id="@+id/mainLayout"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:gravity="center"
-            android:orientation="vertical"
+            android:layout_marginTop="40dp"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="vertical"
             android:padding="@dimen/activity_horizontal_margin">
 
-            <TextView
-                android:id="@+id/titleProfile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="@string/title_profile"
-                android:textSize="30sp">
+            <!--<TextView-->
+            <!--android:id="@+id/titleProfile"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center_vertical|center_horizontal"-->
+            <!--android:text="@string/title_profile"-->
+            <!--android:textSize="30sp">-->
 
-            </TextView>
+            <!--</TextView>-->
 
 
             <ImageView
@@ -58,14 +75,14 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
+                        android:background="@drawable/edit_text_border"
                         android:ems="10"
                         android:hint="@string/hint_firstName"
                         android:imeOptions="actionNext"
                         android:inputType="textPersonName"
-                        android:visibility="visible"
                         android:singleLine="true"
-                        android:background="@drawable/edit_text_border"
-                        android:textColor="@android:color/black" />
+                        android:textColor="@android:color/black"
+                        android:visibility="visible" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -81,13 +98,13 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
+                        android:background="@drawable/edit_text_border"
                         android:ems="10"
                         android:hint="@string/hint_lastName"
                         android:inputType="textPersonName"
-                        android:visibility="visible"
                         android:singleLine="true"
-                        android:background="@drawable/edit_text_border"
-                        android:textColor="@android:color/black" />
+                        android:textColor="@android:color/black"
+                        android:visibility="visible" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -97,8 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/labelGender"
@@ -140,21 +156,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                
+
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/labelBirthday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/str_birthday"
-                    />
+                    android:text="@string/str_birthday" />
 
                 <EditText
                     android:id="@+id/birthday"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="date"/>
+                    android:inputType="date" />
 
             </LinearLayout>
 
@@ -176,7 +191,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
-                    
+
                     android:orientation="horizontal">
 
                     <RadioButton
@@ -206,7 +221,7 @@
                     android:id="@+id/looking"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/looking_for"/>
+                    android:text="@string/looking_for" />
 
                 <ToggleButton
                     android:id="@+id/toggleButtonLooking"
@@ -214,27 +229,27 @@
                     android:layout_height="wrap_content"
                     android:checked="true"
                     android:textOff="@string/str_no"
-                    android:textOn="@string/str_yes"/>
+                    android:textOn="@string/str_yes" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                
+
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/labelProfileBio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/str_bio"/>
+                    android:text="@string/str_bio" />
 
                 <EditText
                     android:id="@+id/profileBio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"/>
+                    android:inputType="textMultiLine" />
             </LinearLayout>
 
             <Button

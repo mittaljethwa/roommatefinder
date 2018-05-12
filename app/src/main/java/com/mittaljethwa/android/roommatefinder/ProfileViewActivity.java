@@ -1,14 +1,19 @@
 package com.mittaljethwa.android.roommatefinder;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -50,6 +55,7 @@ public class ProfileViewActivity extends AppCompatActivity {
     private TextView txtViewCleanlinessScale;
     private TextView txtViewLoudnessScale;
     private TextView txtViewVisitorScale;
+    private Button buttonSendEmail;
     private ProgressBar progressBar;
     private RoommateDetails userDetails;
     private SharedPreferences sharedPreferences;
@@ -78,8 +84,34 @@ public class ProfileViewActivity extends AppCompatActivity {
         //get current user
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         progressBar.setVisibility(View.VISIBLE);
         readRoommateProfile();
+
+        buttonSendEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchEmail();
+            }
+        });
+    }
+
+    private void launchEmail() {
+        String subject = getString(R.string.emailSubject);
+        String bodyText = getString(R.string.emailBody);
+        String mailto = "mailto:"  + userDetails.getEmail() +
+                "?cc=" + "" +
+                "&subject=" + Uri.encode(subject) +
+                "&body=" + Uri.encode(bodyText);
+
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse(mailto));
+
+        startActivity(emailIntent);
     }
 
     private OnCompleteListener<PlaceBufferResponse> mUpdatePlaceDetailsCallback
@@ -153,11 +185,11 @@ public class ProfileViewActivity extends AppCompatActivity {
         txtViewRoomType.setText(userDetails.getHousingPreferences().get(getString(R.string.room_type)).toString());
         txtViewBio.setText(userDetails.getBio());
         txtViewLocation.setText(preferredLocationPlaceName);
-        txtViewRadius.setText(userDetails.getHousingPreferences().get(getString(R.string.search_radius)).toString() + " Miles");
+        txtViewRadius.setText(userDetails.getHousingPreferences().get(getString(R.string.search_radius)).toString() + getString(R.string.label_miles));
         txtViewBedTime.setText(userDetails.getLifestylePreferences().get(getString(R.string.bed_Time)).toString());
         txtViewWakeUpTime.setText(userDetails.getLifestylePreferences().get(getString(R.string.wakeup_Time)).toString());
-        txtViewMinBudget.setText("$" + userDetails.getHousingPreferences().get(getString(R.string.min_Budget)).toString());
-        txtViewMaxBudget.setText("$" + userDetails.getHousingPreferences().get(getString(R.string.max_Budget)).toString());
+        txtViewMinBudget.setText(getString(R.string.dollar_sign) + userDetails.getHousingPreferences().get(getString(R.string.min_Budget)).toString());
+        txtViewMaxBudget.setText(getString(R.string.dollar_sign) + userDetails.getHousingPreferences().get(getString(R.string.max_Budget)).toString());
         txtViewCleanlinessScale.setText(userDetails.getLifestylePreferences().get(getString(R.string.cleanliness_scale)).toString());
         txtViewLoudnessScale.setText(userDetails.getLifestylePreferences().get(getString(R.string.loudness_scale)).toString());
         txtViewVisitorScale.setText(userDetails.getLifestylePreferences().get(getString(R.string.visitor_scale)).toString());
@@ -234,6 +266,15 @@ public class ProfileViewActivity extends AppCompatActivity {
         txtViewCleanlinessScale = this.findViewById(R.id.tvCleanlinessScale);
         txtViewLoudnessScale = this.findViewById(R.id.tvLoudnessScale);
         txtViewVisitorScale = this.findViewById(R.id.tvVisitorScale);
+        buttonSendEmail = this.findViewById(R.id.actionSendEmail);
         progressBar = this.findViewById(R.id.progressBar);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return (super.onOptionsItemSelected(item));
     }
 }

@@ -97,4 +97,14 @@
     <string name="shared_cook">sharedCookingPref</string>
     <string name="title_maximum_budget">Maximum Budget : $</string>
     <string name="noMaxBudget">Budget: N/A</string>
+    <string name="label_miles">Miles</string>
+    <string name="dollar_sign">$</string>
+    <string name="action_send_email">Send Query</string>
+    <string name="emailSubject">Roommate Inquiry</string>
+    <string name="emailBody">Hi, I really liked your profile. It aligns with my interests very well. Could you please check out my profile? I would love yo connect with you.</string>
+    <string name="emailMailtoHeader">mailto:</string>
+    <string name="emailSubjectHeader">&amp;subject=</string>
+    <string name="emailBodyHeader">&amp;body=</string>
+    <string name="messageWaitForResults">Please wait while the results are loaded..</string>
+    <string name="label_search_profile">Search Profile</string>
 </resources>
